@@ -9,7 +9,7 @@ var keystone = require('keystone');
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 
-keystone.init({
+var params = {
 	'name': 'Saoye',
 	'brand': 'Saoye',
 	'less': 'public',
@@ -22,7 +22,11 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User'
-});
+};
+if (process.env.MONGOLAB_URI)
+    params.mongo = process.env.MONGOLAB_URI;
+
+keystone.init(params);
 
 // Load your project's Models
 keystone.import('models');
