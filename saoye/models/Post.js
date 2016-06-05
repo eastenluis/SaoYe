@@ -12,7 +12,8 @@ var Post = new keystone.List('Post', {
     autokey: { path: 'slug', from: 'title', unique: true }
 });
 
-var postImageObj = TypesUtils.createFileTypeObj('post/images');
+// Use extra functions in commons/types-utils.js
+var postImageObj = TypesUtils.createFileTypeObj('post/images/');
 
 Post.add({
     title: { type: String, required: true },

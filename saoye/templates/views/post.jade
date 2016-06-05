@@ -28,5 +28,5 @@ block content
 
 				.post
 					if data.post.image.exists
-						.image-wrap: img(src=data.post._.image.fit(750,500)).img-responsive
+						.image-wrap: img(src="/post/images/" + data.post.image.filename).img-responsive
 					!= data.post.content.full

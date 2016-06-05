@@ -17,11 +17,17 @@ TypesUtils.createS3FileObj = function(path) {
 TypesUtils.createLocalFileObj = function(path) {
     return {
         type: Types.LocalFile,
-        dest: '/data/' + path,
-        prefix: '/' + path + '/',
+        dest: process.cwd() + '/files/' + path,
+        prefix: '/' + path,
+		allowedTypes: [
+			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
+		],
         filename: function(item, file) {
             return item.id + '.' + file.extension
-        }
+        },
+		format: function(item, file) {
+			return '<img src= "/files/' + path + file.filename + '" style="max-width: 750px">'
+		}
     };
 };
 

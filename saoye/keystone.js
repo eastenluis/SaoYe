@@ -90,6 +90,10 @@ keystone.set('nav', {
 	'users': 'users'
 });
 
+// Add a new resource to the root file
+keystone.set('static', ['public', 'files']);
+
+
 // Start Keystone to connect to your database and initialise the web server
 
 keystone.start();

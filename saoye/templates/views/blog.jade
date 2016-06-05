@@ -4,8 +4,9 @@ mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		if post.image.exists
 			a(href='/blog/post/' + post.slug)
-				img(src=post._.image.fit(750, 500)).img-responsive
-	
+				img(src="/post/images/" + post.image.filename).img-responsive
+
+
 
 block intro
 	.container
