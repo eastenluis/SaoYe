@@ -13,7 +13,8 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data = {
 		posts: [],
-		categories: []
+		categories: [],
+		isS3Enabled: TypesUtils.isS3Enabled()
 	};
 	
 	// Load all categories
