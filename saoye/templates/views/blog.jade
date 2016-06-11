@@ -1,10 +1,10 @@
 extends ../layouts/default
 
-mixin post(post)
+mixin post(post, isS3Enabled)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		if post.image.exists
 			a(href='/blog/post/' + post.slug)
-				if data.isS3Enabled
+				if isS3Enabled
 					img(src=post.image.url).img-responsive
 				else 
 					img(src="/post/images/" + post.image.filename).img-responsive
@@ -24,7 +24,7 @@ block content
 				if data.posts.results.length
 					.blog
 						each post in data.posts.results
-							+post(post)
+							+post(post, data.isS3Enabled)
 					
 					if data.posts.totalPages > 1
 						ul.pagination

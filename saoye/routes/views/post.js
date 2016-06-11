@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-var TypesUtils = require('../../types-utils.js');
+var TypesUtils = require('../../commons/types-utils.js');
 
 exports = module.exports = function(req, res) {
 	
