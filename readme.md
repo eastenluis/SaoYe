@@ -16,3 +16,12 @@ COOKIE_SECRET=<COOKIE_SECRET> // Just some random string is fine.
 
 3. Ensure your mongo service is run. Then run `npm start`. The website should be able to
  access from `localhost:3000`.
+
+## Deployment
+
+You have to have the proper permission on heroku dyno.
+
+1. In you repo, `git remote add heroku <path-to-git-repository>`.
+2. `git fetch heroku`.
+3. When you need to deploy, (in root repository) use `git push heroku `git subtree split --prefix saoye master`:master --force
+`.
