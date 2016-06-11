@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var TypesUtils = require('../../commons/types-utils.js');
 
 exports = module.exports = function(req, res) {
 	
@@ -11,7 +12,8 @@ exports = module.exports = function(req, res) {
 		post: req.params.post
 	};
 	locals.data = {
-		posts: []
+		posts: [],
+		isS3Enabled: TypesUtils.isS3Enabled()
 	};
 	
 	// Load the current post

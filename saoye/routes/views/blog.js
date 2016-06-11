@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var async = require('async');
+var TypesUtils = require('../../commons/types-utils.js');
 
 exports = module.exports = function(req, res) {
 	
@@ -13,7 +14,8 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data = {
 		posts: [],
-		categories: []
+		categories: [],
+		isS3Enabled: TypesUtils.isS3Enabled()
 	};
 	
 	// Load all categories
