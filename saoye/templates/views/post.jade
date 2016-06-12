@@ -31,5 +31,5 @@ block content
 						if (data.isS3Enabled)
 							.image-wrap: img(src=data.post.image.url).img-responsive
 						else
-							.image-wrap: img(src="/post/images/" + post.image.filename).img-responsive
+							.image-wrap: img(src="/post/images/" + data.post.image.filename).img-responsive
 					!= data.post.content.full
