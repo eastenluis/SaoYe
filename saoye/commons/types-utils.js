@@ -7,18 +7,25 @@ TypesUtils.isS3Enabled = function() {
 TypesUtils.createS3FileObj = function(path) {
     return {
         type: Types.S3File,
-        s3path: path,
+        s3path: '/files/' + path + '/' ,
+		allowedTypes: [
+			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
+		],
         filename: function(item, filename) {
             return item._id + '-' + filename;
-        }
+        },
+		format: function(item, file){
+			return '<pre>'+JSON.stringify(file, false, 2)+'</pre>'+
+				'<img src="'+file.url+'" style="max-width: 300px">'
+		}
     };
 };
 
 TypesUtils.createLocalFileObj = function(path) {
     return {
         type: Types.LocalFile,
-        dest: process.cwd() + '/files/' + path,
-        prefix: '/' + path,
+        dest: process.cwd() + '/files/' + path + '/',
+        prefix: '/' + path + '/',
 		allowedTypes: [
 			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
 		],
