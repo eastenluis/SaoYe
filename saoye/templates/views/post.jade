@@ -14,9 +14,6 @@ block content
 						if data.post.publishedDate
 							| 时间：#{data.post._.publishedDate.format('YYYY-MM-DD')}
 					h5
-						if data.post.author
-							| 作者：#{data.post.author.name.first}
-					h5
 						if data.post.categories && data.post.categories.length
 							| 标签：
 							each cat, cat_i in data.post.categories
@@ -24,8 +21,16 @@ block content
 								if cat_i < data.post.categories.length - 1
 									| , 
 								else
-									|  
-
+									| 
+					h5
+						if data.post.authors && data.post.authors.length
+							| 作者：
+							each auth, auth_i in data.post.authors
+								a(href='/author/' + auth.slug)= auth.authorName
+								if auth_i < data.post.authors.length - 1
+									| , 
+								else
+									| 
 				.post
 					if data.post.image.exists 
 						if (data.isS3Enabled)

@@ -1,13 +1,16 @@
+/**
+ * Created by olvan on 2016-06-27.
+ */
 var keystone = require('keystone');
 var TypesUtils = require('../../commons/types-utils.js');
 
 exports = module.exports = function(req, res) {
-	
+
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
-	
+
 	// Set locals
-	locals.section = 'blog';
+	locals.section = 'author';
 	locals.filters = {
 		post: req.params.post
 	};
@@ -15,35 +18,35 @@ exports = module.exports = function(req, res) {
 		posts: [],
 		isS3Enabled: TypesUtils.isS3Enabled()
 	};
-	
+
 	// Load the current post
 	view.on('init', function(next) {
-		
-		var q = keystone.list('Post').model.findOne({
+
+		var q = keystone.list('Author').model.findOne({
 			state: 'published',
 			slug: locals.filters.post
-		}).populate('uploader categories authors');
-		
+		}).populate('uploader');
+
 		q.exec(function(err, result) {
 			locals.data.post = result;
 			next(err);
 		});
-		
+
 	});
-	
+
 	// Load other posts
 	view.on('init', function(next) {
-		
-		var q = keystone.list('Post').model.find().where('state', 'published').sort('-publishedDate').populate('uploader').limit('4');
-		
+
+		var q = keystone.list('Author').model.find().where('state', 'published').sort('authorName').populate('uploader').limit('4');
+
 		q.exec(function(err, results) {
 			locals.data.posts = results;
 			next(err);
 		});
-		
+
 	});
-	
+
 	// Render the view
-	view.render('post');
-	
+	view.render('authorPost');
+
 };

@@ -1,0 +1,23 @@
+//Created by olvan on 2016-06-27.
+
+extends ../layouts/default
+
+block content
+	.container-post: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		article
+			p: a(href='/author') &larr; back to the author
+			hr
+			if !data.post
+				h2 Invalid Post.
+			else
+				header
+					h1= data.post.authorName
+
+				.post
+					if data.post.image.exists
+						if (data.isS3Enabled)
+							.image-wrap: img(src=data.post.image.url).img-responsive
+						else
+							.image-wrap: img(src="/author/images/" + data.post.image.filename).img-responsive
+					!= data.post.introduction.brief
+					!= data.post.introduction.extended
