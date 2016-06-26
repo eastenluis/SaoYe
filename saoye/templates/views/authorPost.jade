@@ -19,5 +19,7 @@ block content
 							.image-wrap: img(src=data.post.image.url).img-responsive
 						else
 							.image-wrap: img(src="/author/images/" + data.post.image.filename).img-responsive
+						
+					//intro	
 					!= data.post.introduction.brief
 					!= data.post.introduction.extended
