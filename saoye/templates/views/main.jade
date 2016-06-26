@@ -1,19 +1,16 @@
 extends ../layouts/default
 
-mixin post(post, isS3Enabled)
+mixin post(post)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		if post.image.exists
 			a(href='/blog/post/' + post.slug)
-				if isS3Enabled
-					img(src=post.image.url).img-responsive
-				else 
-					img(src="/post/images/" + post.image.filename).img-responsive
+				img(src="/post/images/" + post.image.filename).img-responsive
 
 
 
 block intro
 	.container
-		h1= data.category ? data.category.name : 'Blog'
+		h1= data.category ? data.category.name : 'Main'
 
 block content
 	.container: .row
@@ -24,7 +21,7 @@ block content
 				if data.posts.results.length
 					.blog
 						each post in data.posts.results
-							+post(post, data.isS3Enabled)
+							+post(post)
 					
 					if data.posts.totalPages > 1
 						ul.pagination
@@ -45,10 +42,3 @@ block content
 					else
 						h3.text-muted There are no posts yet.
 		
-		if data.categories.length
-			.col-sm-4.col-md-3
-				h2 Categories
-				.list-group(style='margin-top: 70px;')
-					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
-					each cat in data.categories
-						a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name

@@ -1,6 +1,5 @@
 var keystone = require('keystone');
 var async = require('async');
-var TypesUtils = require('../../commons/types-utils.js');
 
 exports = module.exports = function(req, res) {
 	
@@ -8,14 +7,13 @@ exports = module.exports = function(req, res) {
 	var locals = res.locals;
 	
 	// Init locals
-	locals.section = 'blog';
+	locals.section = 'home';
 	locals.filters = {
 		category: req.params.category
 	};
 	locals.data = {
 		posts: [],
-		categories: [],
-		isS3Enabled: TypesUtils.isS3Enabled()
+		categories: []
 	};
 	
 	// Load all categories
@@ -67,7 +65,8 @@ exports = module.exports = function(req, res) {
 				perPage: 10,
 				maxPages: 10,
 				filters: {
-					'state': 'published'
+					'state': 'published',
+					'isPromoted': true
 				}
 			})
 			.sort('-publishedDate')
@@ -85,6 +84,6 @@ exports = module.exports = function(req, res) {
 	});
 	
 	// Render the view
-	view.render('blog');
+	view.render('main');
 	
 };
