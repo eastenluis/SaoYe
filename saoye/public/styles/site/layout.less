@@ -1,23 +1,67 @@
-body{
-  height:100%;
-  padding-top: 56px;
+@import '../bootstrap/variables.less';
+body {
+  height: 100%;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+
+h2 {
+  font-size: 2.15em
+}
+
+h3 {
+  font-size: 1.7em
+}
+
+h4 {
+  font-size: 1.25em
+}
+
+h5 {
+  font-size: 1em
+}
+
+h6 {
+  font-size: 0.85em
+}
+
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: @screen-sm-min) {
+  body {
+    font-size: 14px;
+  }
+}
+
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: @screen-md-min) {
+  body {
+    font-size: 16px;
+  }
 }
 
 #container {
-	margin-right: auto;
-	margin-left: auto;
-	padding-left: 0px;
-	padding-right: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
+
 /* Menu style */
+
 #saoye-intro {
   position: absolute;
   width: 100%;
   bottom: 50%;
 }
 
-#menu-list{
+#menu-list {
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -25,12 +69,12 @@ body{
 
 /* Post styles on main page */
 #home-slider {
-  	position: fixed;
-	width: 100%;
-  	height: 100%;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
-.post{
+.post {
   width: 100%;
   height: 100%;
   background: #ffffff;
@@ -42,10 +86,10 @@ body{
   background-size: cover;
   width: 100%;
   height: 100%;
-  background-position:center bottom;	
+  background-position: center bottom;
 }
 
-.post-info{
+.post-info {
   position: absolute;
   top: 20%;
   left: 8%;

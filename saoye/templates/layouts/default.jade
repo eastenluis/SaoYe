@@ -40,42 +40,42 @@ html
 			//- ... or completely change this header to suit your design.
 
 			div(role="navigation").navbar-default.navbar-fixed-top
-				
-				// Full screen modal for every page
-				.navbar-header
-					button(type="button", class="btn btn-info navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal") S
-					block navCtrls
-					if (navText && navUrl)
-						a(href=navUrl class="navbar-header-link")
-							&larr; !{navText}
-				// Animation for the modal
-				.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
-					.modal-dialog
-						.modal-content(style="color:#fff;")
-							
-							.modal-header(style="border:0;")
-								button(type="button", class="close btn btn-link", data-dismiss="modal", aria-hidden="true") X
-									i(class="fa fa-close fa-lg", style="color:#999;")
-								h4.model-title.text-center
-									span.sr-only main navigation
-							
-							.modal-body
-								#saoye-intro.text-right
-									h1(style="color:#000;") 骚也
+				div.container
+					// Full screen modal for every page
+					.navbar-header
+						button(type="button", class="btn btn-info navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal") S
+						block navCtrls
+						if (navText && navUrl)
+							a(href=navUrl class="navbar-header-link")
+								&larr; !{navText}
+					// Animation for the modal
+					.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+						.modal-dialog
+							.modal-content(style="color:#fff;")
 								
-								#menu-list
-									.text-right
-										// Get options from navLinks from middleware.js
-										ul.nav.navbar-nav
-											each link in navLinks
-												li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-										
-										//- ul.nav.navbar-nav
-										//- 	if user
-										//- 		if user.canAccessKeystone
-										//- 			li: a(href='/keystone') 进入后台
-										//- 	else
-										//- 		li: a(href='/keystone/signin') 登陆
+								.modal-header(style="border:0;")
+									button(type="button", class="close btn btn-link", data-dismiss="modal", aria-hidden="true") X
+										i(class="fa fa-close fa-lg", style="color:#999;")
+									h4.model-title.text-center
+										span.sr-only main navigation
+								
+								.modal-body
+									#saoye-intro.text-right
+										h1(style="color:#000;") 骚也
+									
+									#menu-list
+										.text-right
+											// Get options from navLinks from middleware.js
+											ul.nav.navbar-nav
+												each link in navLinks
+													li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+											
+											//- ul.nav.navbar-nav
+											//- 	if user
+											//- 		if user.canAccessKeystone
+											//- 			li: a(href='/keystone') 进入后台
+											//- 	else
+											//- 		li: a(href='/keystone/signin') 登陆
 
 		//- BODY
 		#body
