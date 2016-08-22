@@ -2,12 +2,12 @@ extends ../layouts/default
 
 mixin post(post, isS3Enabled)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		if post.image.exists
+		if post.image && post.image.exists
 			a(href='/blog/post/' + post.slug)
 				if isS3Enabled
-					img(src=post.image.url).img-responsive
+					img(src=post.postImage.url).img-responsive
 				else 
-					img(src="/post/images/" + post.image.filename).img-responsive
+					img(src="/post/images/" + post.postImage.filename).img-responsive
 
 
 

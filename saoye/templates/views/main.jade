@@ -4,9 +4,9 @@ mixin post(post)
 	.post
 		a(href='/blog/post/' + post.slug)
 			if post.postImage.exists & post.titleImage.exists
-				img(class="post-background", style="background-image:url(/post/images/" + post.postImage.filename + ")")
+				img(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
 				.post-info
-					img(class="post-title-img", src="/post/images/" + post.titleImage.filename)
+					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
 			else
 				.post-info
 					h1(class="post-title")

@@ -30,7 +30,7 @@ TypesUtils.createLocalFileObj = function(path) {
 			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
 		],
         filename: function(item, file) {
-            return item.id + '.' + file.extension
+            return item.id + '-' + file.name;
         },
 		format: function(item, file) {
 			return '<img src= "/files/' + path + file.filename + '" style="max-width: 750px">'

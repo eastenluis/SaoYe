@@ -1,20 +1,22 @@
 extends ../layouts/default
 
+block navCtrls
+	- var navText = '返回文录'
+	- var navUrl = '/blog'
+	
 block content
-	.container-post: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+	.container.container-post: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
 		article
-			p: a(href='/blog') &larr; back to the blog
-			hr
 			if !data.post
 				h2 Invalid Post.
 			else
 				header
 					h1= data.post.title
-					h5  
-						if data.post.publishedDate
+					if data.post.publishedDate 
+						div.post-date  	
 							| 时间：#{data.post._.publishedDate.format('YYYY-MM-DD')}
-					h5
-						if data.post.categories && data.post.categories.length
+					if data.post.categories && data.post.categories.length
+						div.post-tags
 							| 标签：
 							each cat, cat_i in data.post.categories
 								a(href='/blog/' + cat.key)= cat.name
@@ -22,8 +24,8 @@ block content
 									| , 
 								else
 									| 
-					h5
-						if data.post.authors && data.post.authors.length
+					if data.post.authors && data.post.authors.length	
+						div.post-author
 							| 作者：
 							each auth, auth_i in data.post.authors
 								a(href='/author/' + auth.slug)= auth.authorName
@@ -32,9 +34,4 @@ block content
 								else
 									| 
 				.post
-					if data.post.image.exists 
-						if (data.isS3Enabled)
-							.image-wrap: img(src=data.post.image.url).img-responsive
-						else
-							.image-wrap: img(src="/post/images/" + data.post.image.filename).img-responsive
 					!= data.post.content.full
