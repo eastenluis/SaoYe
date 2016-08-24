@@ -1,36 +1,55 @@
+@import '../bootstrap/variables.less';
+
 .navbar-default {
-    background: #FFF;
-    .navbar-header {
-        .navbar-toggle {
-            color: #999;
-        }
-        &:hover,:active,:focus {
-            color: #FFF;
-            border-color: #999;
-        }
+  background: #FFF;
+
+  .navbar-header {
+    .navbar-toggle {
+      color: #999;
     }
+
+    & :hover,
+    :active,
+    :focus {
+      color: #FFF;
+      border-color: #999;
+    }
+  }
 }
 
 .container-post {
+  padding-top: 50px;
+
+  .transparent-transition-cover {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+
+  header {
+    margin: 15px 0 20px;
+
+    .post-date,
+    .post-tags,
+    .post-author {
+      font-weight: bold;
+    }
+  }
+
+  p {
+    margin: .7em 0;
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .container-post {
     padding-top: 56px;
 
     .transparent-transition-cover {
-        position: fixed;
-        top: 56px;
-        left: 0;
-        right: 0;
-        height: 30px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      top: 56px;
     }
-
-    header {
-        margin: 15px 0 20px;
-        .post-date, .post-tags, .post-author {
-            font-weight: bold;
-        }
-    }
-
-    p {
-        margin: 0.7em 0;
-    }
+  }
 }

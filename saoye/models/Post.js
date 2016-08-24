@@ -24,7 +24,6 @@ Post.add({
 	titleImage: titleImageObj,
     postImage: postImageObj, 
 	contentImage: { type: Types.LocalFiles, dest: process.cwd() + '/files/post/images/'},
-	
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 150 },
         extended: { type: Types.Html, wysiwyg: true, height: 400 }

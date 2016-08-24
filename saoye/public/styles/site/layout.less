@@ -1,6 +1,8 @@
 @import '../bootstrap/variables.less';
+
 body {
   height: 100%;
+  color: #333;
 }
 
 h1 {
@@ -8,37 +10,31 @@ h1 {
 }
 
 h2 {
-  font-size: 2.15em
+  font-size: 2.15em;
 }
 
 h3 {
-  font-size: 1.7em
+  font-size: 1.7em;
 }
 
 h4 {
-  font-size: 1.25em
+  font-size: 1.25em;
 }
 
 h5 {
-  font-size: 1em
+  font-size: 1em;
 }
 
 h6 {
-  font-size: 0.85em
+  font-size: .85em;
 }
-
-
 /* Small devices (tablets, 768px and up) */
-
 @media (min-width: @screen-sm-min) {
   body {
     font-size: 14px;
   }
 }
-
-
 /* Medium devices (desktops, 992px and up) */
-
 @media (min-width: @screen-md-min) {
   body {
     font-size: 16px;
@@ -48,13 +44,10 @@ h6 {
 #container {
   margin-right: auto;
   margin-left: auto;
-  padding-left: 0px;
-  padding-right: 0px;
+  padding-left: 0;
+  padding-right: 0;
 }
-
-
 /* Menu style */
-
 #saoye-intro {
   position: absolute;
   width: 100%;
@@ -66,7 +59,6 @@ h6 {
   width: 100%;
   bottom: 0;
 }
-
 /* Post styles on main page */
 #home-slider {
   position: fixed;
@@ -78,34 +70,41 @@ h6 {
   width: 100%;
   height: 100%;
   background: #ffffff;
-}
-
-.post-background {
-  position: absolute;
-  background: no-repeat 50% 100%;
-  background-size: cover;
-  width: 100%;
-  height: 100%;
-  background-position: center bottom;
-}
-
-.post-info {
-  position: absolute;
-  top: 20%;
-  left: 8%;
-  width: 84%;
-  color: black;
-}
-
-.post-title-img {
   position: relative;
-  width: 65%;
-  left: 0%;
-  text-align: center;
-}
 
-.post-brief {
-  position: relative;
+  .post-background {
+    position: absolute;
+    background: no-repeat 50% 100%;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    background-position: center bottom;
+  }
+
+  .post-info {
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    width: 84%;
+    color: black;
+  }
+
+  .post-title-img {
+    position: absolute;
+    width: 65vw;
+    left: 0;
+    text-align: center;
+  }
+
+  @media (orientation: portrait) {
+    .post-title-img {
+      width: 80vw;
+    }
+  }
+
+  .post-brief {
+    position: relative;
+  }
 }
 
 .navbar-header-link {
