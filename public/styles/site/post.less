@@ -1,4 +1,5 @@
 @import '../bootstrap/variables.less';
+@import './variables.less';
 
 .navbar-default {
   background: #FFF;
@@ -18,11 +19,11 @@
 }
 
 .container-post {
-  padding-top: 50px;
+  padding-top: @navbar-height-lg-screen;
 
   .transparent-transition-cover {
     position: fixed;
-    top: 50px;
+    top: @navbar-height-lg-screen;
     left: 0;
     right: 0;
     height: 30px;
@@ -51,10 +52,10 @@
 
 @media (max-width: @screen-sm-min) {
   .container-post {
-    padding-top: 56px;
+    padding-top: @navbar-height-sm-screen;
 
     .transparent-transition-cover {
-      top: 56px;
+      top: @navbar-height-sm-screen;
     }
   }
 }

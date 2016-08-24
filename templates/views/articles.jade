@@ -1,6 +1,6 @@
 extends ../layouts/default
 
-mixin post(post, isS3Enabled)	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+mixin post(post, isS3Enabled)
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		if post.postThumbnailImage.exists
 			a(href='/articles/post/' + post.slug)
@@ -8,12 +8,11 @@ mixin post(post, isS3Enabled)	.post(data-ks-editable=editable(user, { list: 'Pos
 					img(src=post.postThumbnailImage.url).img-responsive
 				else 
 					img(src="/post/images/" + post.postThumbnailImage.filename).img-responsive
-			
-			.post-info
-				h1(class="post-title")
-					!=post.title
-				h5(class="post-brief")
-					!=post.content.brief
+		.post-info
+			h1(class="post-title")
+				!=post.title
+			h5(class="post-brief")
+				!=post.content.brief
 
 
 block intro
@@ -21,6 +20,7 @@ block intro
 		h2= data.category ? data.category.name : 'articles / 文录'
 
 block content
+	link(href="/styles/site/articles.min.css", rel="stylesheet")
 	.container: .row
 		.col-sm-8.col-md-9
 			if filters.category && !data.category

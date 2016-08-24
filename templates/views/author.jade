@@ -18,6 +18,7 @@ block intro
 		h1= data.category ? data.category.name : 'Author'
 
 block content
+	link(href="/styles/site/author.min.css", rel="stylesheet")
 	.container: .row
 		.col-sm-8.col-md-9
 			if filters.category && !data.category
