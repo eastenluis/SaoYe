@@ -2,7 +2,7 @@ extends ../layouts/default
 
 mixin post(post)
 	.post
-		a(href='/blog/post/' + post.slug)
+		a(href='/articles/post/' + post.slug)
 			if post.postImage.exists
 				div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
 				if (post.titleImage.exists)
@@ -20,6 +20,7 @@ mixin post(post)
 						!=post.title
 					h5(class="post-brief") 
 						!=post.content.brief
+						!=post.authors
 
 
 block content

@@ -1,6 +1,7 @@
 extends ../layouts/default
 	
 block content
+
 	link(href="/styles/site/post.min.css", rel="stylesheet")
 	.container.container-post: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
 		.transparent-transition-cover
@@ -17,7 +18,7 @@ block content
 						div.post-tags
 							| 标签：
 							each cat, cat_i in data.post.categories
-								a(href='/blog/' + cat.key)= cat.name
+								a(href='/articles/' + cat.key)= cat.name
 								if cat_i < data.post.categories.length - 1
 									| , 
 								else

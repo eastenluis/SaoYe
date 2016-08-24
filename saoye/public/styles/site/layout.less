@@ -3,18 +3,24 @@
 body {
   height: 100%;
   color: #333;
+  line-height: 24px;
+  letter-spacing: 1px;
+  
 }
 
 h1 {
   font-size: 2.6em;
+  font-weight: 200;
 }
 
 h2 {
   font-size: 2.15em;
+  font-weight: 200;
 }
 
 h3 {
   font-size: 1.7em;
+  font-weight: 200;
 }
 
 h4 {
@@ -83,23 +89,29 @@ h6 {
 
   .post-info {
     position: absolute;
-    top: 20%;
-    left: 8%;
+    top: 14%;
+    left: 0%;
     width: 84%;
     color: black;
   }
 
   .post-title-img {
     position: absolute;
-    width: 65vw;
+    width: 100vw;
     left: 0;
     text-align: center;
   }
 
-  @media (orientation: portrait) {
+  @media (orientation: landscape) {
     .post-title-img {
-      width: 80vw;
+      width: 75vw;
     }
+	
+	.post-background {
+	  filter:alpha(opacity=50);
+	  -moz-opacity:0.5;
+	  opacity: 0.5;
+	}
   }
 
   .post-brief {

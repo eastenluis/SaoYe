@@ -1,19 +1,24 @@
 extends ../layouts/default
 
-mixin post(post, isS3Enabled)
+mixin post(post, isS3Enabled)	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		if post.image && post.image.exists
-			a(href='/blog/post/' + post.slug)
+		if post.postThumbnailImage.exists
+			a(href='/articles/post/' + post.slug)
 				if isS3Enabled
-					img(src=post.postImage.url).img-responsive
+					img(src=post.postThumbnailImage.url).img-responsive
 				else 
-					img(src="/post/images/" + post.postImage.filename).img-responsive
-
+					img(src="/post/images/" + post.postThumbnailImage.filename).img-responsive
+			
+			.post-info
+				h1(class="post-title")
+					!=post.title
+				h5(class="post-brief")
+					!=post.content.brief
 
 
 block intro
 	.container
-		h1= data.category ? data.category.name : 'Blog'
+		h2= data.category ? data.category.name : 'articles / 文录'
 
 block content
 	.container: .row
@@ -22,7 +27,7 @@ block content
 				h3.text-muted Invalid Category.
 			else
 				if data.posts.results.length
-					.blog
+					.articles
 						each post in data.posts.results
 							+post(post, data.isS3Enabled)
 					
@@ -49,6 +54,6 @@ block content
 			.col-sm-4.col-md-3
 				h2 Categories
 				.list-group(style='margin-top: 70px;')
-					a(href='/blog', class=!data.category ? 'active' : false).list-group-item All Categories
+					a(href='/articles', class=!data.category ? 'active' : false).list-group-item All Categories
 					each cat in data.categories
-						a(href='/blog/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+						a(href='/articles/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
