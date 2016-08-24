@@ -13,8 +13,10 @@ var Post = new keystone.List('Post', {
 });
 
 // Use extra functions in commons/types-utils.js
+
 var titleImageObj = TypesUtils.createFileTypeObj('post/images/');
 var postImageObj = TypesUtils.createFileTypeObj('post/images/');
+var postThumbnailImageObj = TypesUtils.createFileTypeObj('post/images/');
 
 Post.add({
     title: { type: String, required: true },
@@ -23,8 +25,8 @@ Post.add({
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	titleImage: titleImageObj,
     postImage: postImageObj, 
+	postThumbnailImage: postThumbnailImageObj,
 	contentImage: { type: Types.LocalFiles, dest: process.cwd() + '/files/post/images/'},
-	
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 150 },
         extended: { type: Types.Html, wysiwyg: true, height: 400 }
