@@ -15,7 +15,7 @@ mixin post(post, isS3Enabled)
 
 block intro
 	.container
-		h1= data.category ? data.category.name : 'Author'
+		h2.page-heading= data.category ? data.category.name : 'authors / 作者'
 
 block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")

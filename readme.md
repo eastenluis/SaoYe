@@ -23,5 +23,4 @@ You have to have the proper permission on heroku dyno.
 
 1. In you repo, `git remote add heroku <path-to-git-repository>`.
 2. `git fetch heroku`.
-3. When you need to deploy, (in root repository) use `git push heroku `git subtree split --prefix saoye master`:master --force
-`.
+3. When you need to deploy, (in root repository) use `git push heroku:master --force`.
