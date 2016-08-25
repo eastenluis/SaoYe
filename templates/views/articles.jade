@@ -1,23 +1,22 @@
 extends ../layouts/default
 
 mixin post(post, isS3Enabled)
-	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
-		if post.postThumbnailImage.exists
-			a(href='/articles/post/' + post.slug)
-				if isS3Enabled
-					img(src=post.postThumbnailImage.url).img-responsive
-				else 
-					img(src="/post/images/" + post.postThumbnailImage.filename).img-responsive
-		.post-info
-			h1(class="post-title")
-				!=post.title
-			h5(class="post-brief")
-				!=post.content.brief
+	.post
+		if (post.postThumbnailImage.exists)
+			- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
+		else 
+			- var postUrl = ''; 
+		a(href='/articles/post/' + post.slug, style="background-image:url('" + postUrl + "');").post-thumbnail
+			.post-info
+				h1(class="post-title")
+					!=post.title
+				h5(class="post-brief")
+					!=post.content.brief
 
 
 block intro
 	.container
-		h2= data.category ? data.category.name : 'articles / 文录'
+		h2.article-heading= data.category ? data.category.name : 'articles / 文录'
 
 block content
 	link(href="/styles/site/articles.min.css", rel="stylesheet")
