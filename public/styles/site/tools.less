@@ -13,28 +13,20 @@
   background-position: center;
   background-size: cover;
 }
-//faster sliding speed
-.carousel-inner > .item {
-  -webkit-transition: .3s ease-in-out left;
-  -moz-transition: .3s ease-in-out left;
-  -o-transition: .3s ease-in-out left;
-  transition: .3s ease-in-out left;
-}
-// keep full widget on smaller screens
-@media (max-width: 767px) {
-  body {
-    padding-left: 0;
-    padding-right: 0;
+
+.carousel-inner {
+  .item {
+    .transition-duration(0.3s);
+    .transition-property('left, transform');
   }
 }
 
-.carousel-control.right {
-  background-image: none;
+.carousel-control{
+  &.right, &.left {
+    background-image: none;
+  }
 }
 
-.carousel-control.left {
-  background-image: none;
-}
 /* Full screen modal */
 .fullscreen {
   .modal-dialog {
