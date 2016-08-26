@@ -3,33 +3,35 @@ extends ../layouts/default
 block content
 	link(href="/styles/site/post.min.css", rel="stylesheet")
 	.container.container-post: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
-		.transparent-transition-cover
+		//- .transparent-transition-cover
 		article
 			if !data.post
 				h2 Invalid Post.
 			else
 				header
 					h1= data.post.title
-					if data.post.publishedDate 
-						div.post-date  	
-							| 时间：#{data.post._.publishedDate.format('YYYY-MM-DD')}
-					if data.post.categories && data.post.categories.length
-						div.post-tags
-							| 标签：
-							each cat, cat_i in data.post.categories
-								a(href='/articles/' + cat.key)= cat.name
-								if cat_i < data.post.categories.length - 1
-									| , 
-								else
-									| 
-					if data.post.authors && data.post.authors.length	
-						div.post-author
-							| 作者：
-							each auth, auth_i in data.post.authors
-								a(href='/author/' + auth.slug)= auth.authorName
-								if auth_i < data.post.authors.length - 1
-									| , 
-								else
-									| 
+					.post-prop-panel
+						if data.post.authors && data.post.authors.length	
+							div.post-prop
+								each auth, auth_i in data.post.authors
+									a(href='/author/' + auth.slug)= auth.authorName
+									if auth_i < data.post.authors.length - 1
+										| , 
+									else
+										| 
+						if data.post.categories && data.post.categories.length
+							div.post-prop
+								each cat, cat_i in data.post.categories
+									a(href='/articles/' + cat.key)= cat.name
+									if cat_i < data.post.categories.length - 1
+										| , 
+									else
+										| 
+						if data.post.publishedDate 
+							div.post-prop  	
+								| #{data.post._.publishedDate.format('YYYY年M月D日')}
+				if (data.post.postThumbnailImage.exists)
+					- var postUrl = data.post.postThumbnailImage.url || ('/articles/post/images/' + data.post.postThumbnailImage.filename);
+					div(style="background-image:url('" + postUrl + "');").post-thumbnail
 				.post
 					!= data.post.content.full
