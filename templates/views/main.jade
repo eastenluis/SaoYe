@@ -28,7 +28,7 @@ mixin post(post)
 
 block content
 		if data.posts.results.length
-			#home-slider(data-interval="false").carousel.slide
+			#home-slider(data-interval="false" data-ride="carousel").carousel.slide
 				.carousel-inner
 					- var i = 0
 					each post in data.posts.results
