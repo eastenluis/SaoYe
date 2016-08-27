@@ -71,7 +71,7 @@ exports = module.exports = function(req, res) {
 				}
 			})
 			.sort('-publishedDate')
-			.populate('uploader categories');
+			.populate('uploader categories authors');
 		
 		if (locals.data.category) {
 			q.where('categories').in([locals.data.category]);

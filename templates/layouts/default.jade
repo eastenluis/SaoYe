@@ -40,7 +40,8 @@ html
 				// Full screen modal for every page
 				.navbar-header
 					//- a(href="/").navbar-brand 骚也
-					span.glyphicon.glyphicon-menu-hamburger(class="navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
+					button(class="navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
+						span.glyphicon.glyphicon-menu-hamburger
 				// Navigation menu in desktop mode
 				nav.navbar-desktop
 					ul.nav.navbar-nav.navbar-right
@@ -53,8 +54,8 @@ html
 						.modal-content(style="color:#fff;")
 							
 							.modal-header(style="border:0;")
-								span.glyphicon.glyphicon-remove(type="button", class="close btn", data-dismiss="modal", aria-hidden="true")
-									i(class="fa fa-close fa-lg", style="color:#999;")
+								button(type="button", class="btn close", data-dismiss="modal", aria-hidden="true")
+									span(class="glyphicon glyphicon-remove")
 								h4.model-title.text-center
 									span.sr-only main navigation
 							

@@ -1,18 +1,27 @@
 extends ../layouts/default
 
 mixin post(post, isS3Enabled)
-	.post
+	.col-md-6.post
 		if (post.postThumbnailImage.exists)
 			- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
 		else 
 			- var postUrl = ''; 
-		a(href='/articles/post/' + post.slug, style="background-image:url('" + postUrl + "');").post-thumbnail
-			.post-info
-				h1(class="post-title")
-					!=post.title
-				h5(class="post-brief")
-					!=post.content.brief
-
+		div(style="background-image:url('" + postUrl + "');").post-thumbnail
+			.category-labels
+				if post.authors && post.authors.length
+					each auth, auth_i in post.authors
+						a(href='/author/' + auth.slug).label.dark= auth.authorName
+					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
+				if post.categories && post.categories.length
+					each cat, cat_i in post.categories
+						span.label=cat.name	
+		.post-author-date
+			
+		div.post-info
+			a(href='/articles/post/' + post.slug).post-title
+				!=post.title
+			.post-brief
+				!=post.content.brief
 
 block intro
 	.container
@@ -21,12 +30,12 @@ block intro
 block content
 	link(href="/styles/site/articles.min.css", rel="stylesheet")
 	.container: .row
-		.col-sm-8.col-md-9
+		.col-md-9.col-sm-7
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
 				if data.posts.results.length
-					.articles
+					.row.articles
 						each post in data.posts.results
 							+post(post, data.isS3Enabled)
 					
@@ -50,7 +59,7 @@ block content
 						h3.text-muted There are no posts yet.
 		
 		if data.categories.length
-			.col-sm-4.col-md-3.hidden-xs
+			.col-md-3.col-sm-5
 				.list-group.category-list
 					a(href='/articles', class=!data.category ? 'active' : false).list-group-item All Categories
 					each cat in data.categories

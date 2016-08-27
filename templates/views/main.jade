@@ -27,6 +27,7 @@ mixin post(post)
 
 
 block content
+		link(href="/styles/site/main.min.css", rel="stylesheet")
 		if data.posts.results.length
 			#home-slider(data-interval="false" data-ride="carousel").carousel.slide
 				.carousel-inner

@@ -1,6 +1,11 @@
 @import '../bootstrap/variables.less';
 
+.font-hei() {
+  font-family: -apple-system, "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Source Han Sans SC", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
+}
+
 body {
+  .font-hei(); 
   height: 100%;
   color: #333;
   letter-spacing: 0.065em;
@@ -36,7 +41,7 @@ h6 {
 
 @media (max-width: @screen-sm-min) {
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -71,49 +76,9 @@ h6 {
   height: 100%;
 }
 
-.post {
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  position: relative;
-
-  .post-background {
-    position: absolute;
-    background: no-repeat 50% 100%;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-  }
-
-  .post-info {
-    position: absolute;
-    top: 14%;
-    left: 0;
-    width: 84%;
-    color: black;
-  }
-
-  .post-title-img {
-    position: absolute;
-    width: 100vw;
-    left: 0;
-    text-align: center;
-  }
-
-  @media (orientation: landscape) {
-    .post-title-img {
-      width: 75vw;
-    }
-
-    .post-background {
-      opacity: .5;
-    }
-  }
-
-  .post-brief {
-    position: relative;
-  }
+.navbar-toggle {
+  line-height: 1;
+  color: #999
 }
 
 .navbar-header-link {

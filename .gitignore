@@ -33,3 +33,5 @@ node_modules
 
 # Ignore local storage
 files/**
+
+*.orig
