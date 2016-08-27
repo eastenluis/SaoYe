@@ -2,30 +2,33 @@ extends ../layouts/default
 
 mixin post(post)
 	.post
-		a(href='/articles/post/' + post.slug)
-			if post.postImage.exists
-				div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
-				if (post.titleImage.exists)
-					.post-info
-						img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
-				else 
-					.post-info
-						h1(class="post-title")
-							!=post.title
-						h5(class="post-brief") 
-							!=post.content.brief	
-			else
+			
+		if post.postImage.exists
+			div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
+			if (post.titleImage.exists)
+				.post-info
+					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
+			else 
 				.post-info
 					h1(class="post-title")
 						!=post.title
 					h5(class="post-brief") 
-						!=post.content.brief
-						!=post.authors
+						!=post.content.brief	
+		else
+			.post-info
+				h1(class="post-title")
+					!=post.title
+				h5(class="post-brief") 
+					!=post.content.brief
+					!=post.authors
+	
+		a.carousel-control.post-link(href='/articles/post/' + post.slug)
+			span.glyphicon.glyphicon-record
 
 
 block content
 		if data.posts.results.length
-			#home-slider(data-interval="false").carousel.slide
+			#home-slider(data-interval="false" data-ride="carousel").carousel.slide
 				.carousel-inner
 					- var i = 0
 					each post in data.posts.results
@@ -38,8 +41,12 @@ block content
 							.item
 								+post(post)
 			.pull-center
+					
 				a.carousel-control.left(href="#home-slider" data-slide="prev")
+					span.glyphicon.glyphicon-triangle-left
+					
 				a.carousel-control.right(href="#home-slider" data-slide="next")
+					span.glyphicon.glyphicon-triangle-right
 
 		else
 			h3.text-muted There are no posts yet.
