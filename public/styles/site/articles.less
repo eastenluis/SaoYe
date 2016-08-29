@@ -54,17 +54,24 @@ body {
 
         .label {
           display: inline-block;
-          background-color: yellow;
+          background-color: #E9CD4C;
+          padding: .3em .6em;
           color: #333;
           border-radius: 0;
 
           &.dark {
             background-color: #333;
             color: #FFF;
+          }
 
-            &+.dark {
-              border-left: 1px solid #FFF;
-            }
+          &+.label {
+            border-left: 1px solid #FFF;
+          }
+        }
+
+        a.label {
+          &:hover, &:focus {
+            text-decoration: underline;
           }
         }
       }

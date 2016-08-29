@@ -14,7 +14,7 @@ mixin post(post, isS3Enabled)
 					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
 				if post.categories && post.categories.length
 					each cat, cat_i in post.categories
-						span.label=cat.name	
+						a(href='/articles/' + cat.key).label=cat.name	
 		.post-author-date
 			
 		div.post-info

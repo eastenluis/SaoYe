@@ -52,30 +52,20 @@ html
 				.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
 					.modal-dialog
 						.modal-content(style="color:#fff;")
-							
 							.modal-header(style="border:0;")
 								button(type="button", class="btn close", data-dismiss="modal", aria-hidden="true")
 									span(class="glyphicon glyphicon-remove")
 								h4.model-title.text-center
 									span.sr-only main navigation
-							
 							.modal-body
 								#saoye-intro.text-right
 									h1(style="color:#000;") 骚也
-								
 								#menu-list
 									.text-right
 										// Get options from navLinks from middleware.js
 										ul.nav.navbar-nav
 											each link in navLinks
 												li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-										
-										//- ul.nav.navbar-nav
-										//- 	if user
-										//- 		if user.canAccessKeystone
-										//- 			li: a(href='/keystone') 进入后台
-										//- 	else
-										//- 		li: a(href='/keystone/signin') 登陆
 
 		//- BODY
 		#body
