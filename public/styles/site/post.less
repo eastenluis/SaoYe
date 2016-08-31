@@ -32,6 +32,12 @@
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
   }
 
+  .post-thumbnail {
+    background-size: cover;
+    background-position: center bottom;
+    padding: 25%;
+  }
+
   .main-col {
     display: -webkit-flex;
     display: flex;
@@ -40,6 +46,42 @@
       max-width: 40em;
       -webit-flex: 1 1 auto;
       flex: 1 1 auto;
+
+      blockquote.post-abstract {
+        font-size: .9em;
+        color: #666;
+        border-left: 2px solid @ohdo-brown;
+        padding: 10px;
+        margin-top: 10px;
+
+        header {
+          margin: 5px 0;
+          font-weight: bold;
+        }
+      }
+
+      .post-body {
+        p {
+          margin-bottom: 1em;
+          line-height: 1.6em;
+        }
+
+        blockquote {
+          border-left: 2px solid @ohdo-brown;
+        }
+      }
+
+      .post-editor-note {
+        padding-top: 15px;
+        margin-top: 30px;
+        border-top: 1px solid #333;
+
+        header {
+          font-size: 1.2em;
+          margin: 15px 0;
+          font-weight: bold;
+        }
+      }
     }
 
     .fill-space {
@@ -51,7 +93,7 @@
   header {
     h1 {
       margin-top: 0;
-      margin-bottom: 15px
+      margin-bottom: 15px;
     }
 
     .post-prop-panel {
@@ -61,6 +103,7 @@
       display: -ms-flex;
       display: flex;
       margin-bottom: 10px;
+
       .post-prop {
         font-size: .9em;
         line-height: 1.2;
@@ -68,6 +111,7 @@
         a {
           color: #999;
           text-decoration: underline;
+
           &:hover {
             color: #666;
           }
@@ -83,15 +127,58 @@
     }
   }
 
-  .post-thumbnail {
-    background-size: cover;
-    background-position: center bottom;
-    padding: 25%;
-  }
+  .side-col {
+    padding-top: 55px;
 
-  p {
-    margin: 1em 0;
-    line-height: 1.6em;
+    header {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .authors-container {
+      .author {
+        display: -webkit-flex;
+        display: flex;
+
+        .avatar {
+          width: 100px;
+          height: 100px;
+          display: block;
+        }
+
+        .author-info {
+          padding: 10px;
+
+          .name {
+            font-size: 1.2em;
+            font-weight: bold;
+          }
+
+          .brief {
+            color: #999;
+          }
+        }
+      }
+
+      .recent-posts {
+        header {
+          margin-top: 15px;
+        }
+
+        .author-post {
+          padding: 0 5px;
+          margin: 5px 0;
+
+          a {
+            color: #333;
+
+            .author-post-date {
+              color: #999;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -101,6 +188,10 @@
 
     .transparent-transition-cover {
       top: @navbar-height-sm-screen;
+    }
+
+    .side-col {
+      padding-top: 20px;
     }
   }
 }

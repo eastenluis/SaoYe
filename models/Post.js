@@ -30,8 +30,8 @@ Post.add({
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 50 },
         abstract: { type: Types.Html, wysiwyg: true, height: 150 },
-        editorNote: { type: Types.Html, wysiwyg: true, height: 150 },
-        extended: { type: Types.Html, wysiwyg: true, height: 400 }
+        extended: { type: Types.Html, wysiwyg: true, height: 400 },
+        editorNote: { type: Types.Html, wysiwyg: true, height: 150 }
     },
     categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	authors: { type: Types.Relationship, ref: 'Author', many: true },
