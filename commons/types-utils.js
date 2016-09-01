@@ -1,5 +1,7 @@
 var Types = require('keystone').Field.Types;
 var TypesUtils = {};
+var FILE_STORAGE_PATH = process.env.FILE_STORAGE_PATH || process.cwd();
+
 TypesUtils.isS3Enabled = function() {
     return process.env.S3_BUCKET && process.env.S3_KEY && process.env.S3_SECRET;
 };
@@ -24,7 +26,7 @@ TypesUtils.createS3FileObj = function(path) {
 TypesUtils.createLocalFileObj = function(path) {
     return {
         type: Types.LocalFile,
-        dest: process.cwd() + '/files/' + path + '/',
+        dest: FILE_STORAGE_PATH + '/files/' + path + '/',
         prefix: '/' + path + '/',
 		allowedTypes: [
 			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
