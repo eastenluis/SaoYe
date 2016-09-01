@@ -1,5 +1,15 @@
 extends ../layouts/default
 	
+block authorInfo
+	if data.post.authors && data.post.authors.length
+		each auth in data.post.authors
+			.author
+				- var authorImageUrl = auth.image.exists ? auth.image.url || ('/authors/images/' + auth.image.filename) : '';
+				img(src=authorImageUrl).avatar 
+				.author-info
+					.name=auth.authorName
+					.brief=auth.introduction.brief||'此处应有一段简短的自述。'
+
 block content
 	link(href="/styles/site/post.min.css", rel="stylesheet")
 	.container.container-post: .row
@@ -35,31 +45,27 @@ block content
 						- var postUrl = data.post.postThumbnailImage.url || ('/articles/post/images/' + data.post.postThumbnailImage.filename);
 						div(style="background-image:url('" + postUrl + "');").post-thumbnail
 					blockquote.post-abstract
-						header 导语：
 						div!=data.post.content.abstract
 					.post-body
 						!= data.post.content.full
+					.hidden-md.hidden-lg.authors-container
+						header 作者
+						block authorInfo
 					.post-editor-note
 						header 编辑手札
 						.edtor-note!=data.post.content.editorNote||'<p>一段来自己编辑们的评论。</p><p>可能有多行。</p>'
 			.fill-space.hidden-md.hidden-lg
 		section.col-md-4.side-col 
-			header 作者
-			.authors-container 
-				if data.post.authors && data.post.authors.length
-					each auth in data.post.authors
-						.author
-							- var authorImageUrl = auth.image.exists ? auth.image.url || ('/authors/images/' + auth.image.filename) : '';
-							img(src=authorImageUrl).avatar 
-							.author-info
-								.name=auth.authorName
-								.brief=auth.introduction.brief||'此处应有一段简短的自述。'
+			.authors-container
+				header.hidden-sm.hidden-xs 作者
+				.hidden-sm.hidden-xs
+					block authorInfo
 				if (data.authorPosts && data.authorPosts.length > 0)
 					.recent-posts
 						header 最近文章
 						ul
-						each authorPost in data.authorPosts
-							li.author-post
-								a(href='/articles/post/' + authorPost.slug)
-									= authorPost.title + ' - '
-									span.author-post-date=authorPost._.publishedDate.format('YYYY.MM.DD')
+							each authorPost in data.authorPosts
+								li.author-post
+									a(href='/articles/post/' + authorPost.slug)
+										= authorPost.title + ' - '
+										span.author-post-date=authorPost._.publishedDate.format('YYYY.MM.DD')

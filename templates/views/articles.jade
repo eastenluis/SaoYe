@@ -59,7 +59,7 @@ block content
 						h3.text-muted There are no posts yet.
 		
 		if data.categories.length
-			.col-md-3.col-sm-5
+			.col-md-3.col-sm-5.hidden-xs
 				.list-group.category-list
 					a(href='/articles', class=!data.category ? 'active' : false).list-group-item All Categories
 					each cat in data.categories
