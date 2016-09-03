@@ -33,7 +33,8 @@ Post.add({
     },
     categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	authors: { type: Types.Relationship, ref: 'Author', many: true },
-	isPromoted: { type: Types.Boolean } //Article will be posted on homepage if true
+	isPromoted: { type: Types.Boolean }, //Article will be posted on homepage if true
+	mainPageColorScheme: { type: Types.Select, options: 'white, black', default: 'white'} 
 });
 
 Post.schema.virtual('content.full').get(function() {

@@ -16,16 +16,41 @@
 
 .carousel-inner {
   .item {
-    .transition-duration(0.3s);
-    .transition-property('left, transform');
+	.transition-duration(0.3s);
+	.transition-property('left, transform');
+  }
+}
+
+.slider-control {
+  &.black-theme {
+	.carousel-control {
+	  text-shadow: 0 1px 2px #fff;
+	  opacity: .7;
+	  
+	  .glyphicon {
+		color: #000;
+	  }
+	}
+  }
+
+  &.white-theme {
+	
+	.carousel-control {
+	  text-shadow: 0 1px 2px #000;
+	  opacity: .7;
+	  
+	  .glyphicon {
+		color: #fff;
+	  }
+	}
   }
 }
 
 .carousel-control {
-  top: 91%;
+  position: fixed;
+  top: 88%;
   left: 42.2%;
   opacity: .7;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 1);
 
   .glyphicon {
     top: 15px;
@@ -40,6 +65,7 @@
     left: 25%;
     background-image: none;
   }
+  
 }
 /* Full screen modal */
 .fullscreen {
@@ -50,10 +76,6 @@
     min-height: 100%;
     padding: 0;
     color: #333;
-  }
-
-  .modal-header {
-    padding: 10px;
   }
 
   .modal-content {
@@ -151,3 +173,4 @@
 .modal-backdrop {
   z-index: 0;
 }
+
