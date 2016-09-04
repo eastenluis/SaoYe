@@ -23,7 +23,7 @@ Author.add({
 	authorName: { type: String, required: true },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	uploader: { type: Types.Relationship, ref: 'User', index: true },
-	image: authorImageObj,
+	authorImage: authorImageObj,
 	introduction: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }

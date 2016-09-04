@@ -13,7 +13,7 @@ exports = module.exports = function(req, res) {
 		category: req.params.category
 	};
 	locals.data = {
-		posts: [],
+		authors: [],
 		categories: [],
 		isS3Enabled: TypesUtils.isS3Enabled()
 	};
@@ -59,7 +59,7 @@ exports = module.exports = function(req, res) {
 
 	});
 
-	// Load the posts
+	// Load the authors
 	view.on('init', function(next) {
 
 		var q = keystone.list('Author').paginate({
@@ -68,8 +68,8 @@ exports = module.exports = function(req, res) {
 			maxPages: 10,
 			filters: {
 				'state': 'published'
-			}
-		})
+				}
+			})
 			.sort('authorName')
 			.populate('uploader');
 
@@ -78,7 +78,7 @@ exports = module.exports = function(req, res) {
 		// }
 
 		q.exec(function(err, results) {
-			locals.data.posts = results;
+			locals.data.authors = results;
 			next(err);
 		});
 
