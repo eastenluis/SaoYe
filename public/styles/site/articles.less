@@ -30,7 +30,7 @@ body {
     border-right: 0 none;
 
     &.active {
-      background-color: #333;
+      background-color: @dark-selection-background;
     }
   }
 }
@@ -51,17 +51,24 @@ body {
 
         .label {
           display: inline-block;
-          background-color: yellow;
+          background-color: @kihada-yellow;
+          padding: .3em .6em;
           color: #333;
           border-radius: 0;
 
           &.dark {
             background-color: #333;
             color: #FFF;
+          }
 
-            &+.dark {
-              border-left: 1px solid #FFF;
-            }
+          &+.label {
+            border-left: 1px solid #FFF;
+          }
+        }
+
+        a.label {
+          &:hover, &:focus {
+            text-decoration: underline;
           }
         }
       }

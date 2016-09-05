@@ -9,8 +9,9 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		title= title || 'Saoye'
-		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+		title= title || '骚也'
+		link(rel="shortcut icon", href="/favicon.png", type="image/png")
+		link(rel="apple-touch-icon" href="/images/saoye_logo_160x160.png" sizes="160x160" type="image/png")
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.less
 		//- All .less files will be automatically compiled and minified in production.
@@ -39,7 +40,8 @@ html
 			div.container
 				// Full screen modal for every page
 				.navbar-header
-					//- a(href="/").navbar-brand 骚也
+					a(href="/").navbar-brand.hidden-sm.hidden-md.hidden-lg: img(src="/images/saoye_logo_m_120x120.png")
+					a(href="/").navbar-brand.hidden-xs: img(src="/images/saoye_logo_120x120.png")
 					button(class="navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
 						span.glyphicon.glyphicon-menu-hamburger
 				// Navigation menu in desktop mode
@@ -51,11 +53,14 @@ html
 				// Animation for the modal
 				.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
 					.modal-dialog
-						.modal-content
+
+						.modal-content(style="color:#fff;")
 							.modal-header(style="border:0;")
 								button(type="button", class="btn close", data-dismiss="modal", aria-hidden="true")
-									span(class="navbar-toggle glyphicon glyphicon-remove")
-							
+									span(class="glyphicon glyphicon-remove")
+								h4.model-title.text-center
+									span.sr-only main navigation
+
 							.modal-body
 								.saoye-intro.text-right
 									h1(style="color:#000;") 骚也
@@ -66,7 +71,6 @@ html
 										ul.nav.navbar-nav
 											each link in navLinks
 												li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-												
 
 		//- BODY
 		#body

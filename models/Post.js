@@ -26,10 +26,12 @@ Post.add({
 	titleImage: titleImageObj,
     postImage: postImageObj, 
 	postThumbnailImage: postThumbnailImageObj,
-	contentImage: { type: Types.LocalFiles, dest: process.cwd() + '/files/post/images/'},
+	postBannerImage: postImageObj,
     content: {
-        brief: { type: Types.Html, wysiwyg: true, height: 150 },
-        extended: { type: Types.Html, wysiwyg: true, height: 400 }
+        brief: { type: Types.Html, wysiwyg: true, height: 50 },
+        abstract: { type: Types.Html, wysiwyg: true, height: 150 },
+        extended: { type: Types.Html, wysiwyg: true, height: 400 },
+        editorNote: { type: Types.Html, wysiwyg: true, height: 150 }
     },
     categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	authors: { type: Types.Relationship, ref: 'Author', many: true },

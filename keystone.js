@@ -56,14 +56,16 @@ keystone.set('nav', {
 keystone.set('static', ['public', 'files']);
 
 // Set S3 configuration.
-keystone.set('s3 config', {
-	bucket: process.env.S3_BUCKET,
-	key: process.env.S3_KEY,
-	secret: process.env.S3_SECRET,
-	'default headers':  {
-		'x-amz-meta-X-Default-Header': 'Custom Default Value'
-	}
-});
+if (process.env.S3_BUCKET && process.env.S3_KEY && process.env.S3_SECRET) {
+	keystone.set('s3 config', {
+		bucket: process.env.S3_BUCKET,
+		key: process.env.S3_KEY,
+		secret: process.env.S3_SECRET,
+		'default headers': {
+			'x-amz-meta-X-Default-Header': 'Custom Default Value'
+		}
+	});
+}
 
 // Start Keystone to connect to your database and initialise the web server
 
