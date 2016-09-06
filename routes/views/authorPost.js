@@ -15,11 +15,13 @@ exports = module.exports = function(req, res) {
 		post: req.params.post
 	};
 	locals.data = {
-		posts: [],
+		author: [],
+		authorPosts: [],
 		isS3Enabled: TypesUtils.isS3Enabled()
 	};
+	
 
-	// Load the current post
+	// Load information for the current user
 	view.on('init', function(next) {
 
 		var q = keystone.list('Author').model.findOne({
@@ -28,22 +30,24 @@ exports = module.exports = function(req, res) {
 		}).populate('uploader');
 
 		q.exec(function(err, result) {
-			locals.data.post = result;
+			locals.data.author = result;
 			next(err);
 		});
 
 	});
 
-	// Load other posts
+	// Load posts that are composed by this author
 	view.on('init', function(next) {
 
-		var q = keystone.list('Author').model.find().where('state', 'published').sort('authorName').populate('uploader').limit('4');
-
+		var q = keystone.list('Post').model.find()
+			.where('state', 'published')
+			.where('authors').in([locals.data.author]);
+		
 		q.exec(function(err, results) {
-			locals.data.posts = results;
+			locals.data.authorPosts = results;
 			next(err);
+			
 		});
-
 	});
 
 	// Render the view

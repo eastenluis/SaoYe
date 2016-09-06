@@ -2,24 +2,33 @@
 
 extends ../layouts/default
 
+mixin post(post, isS3Enabled)
+	.post.col-md-6
+	
+		div.post-info
+			a(href='/articles/post/' + post.slug).post-title
+				!=post.title
+			.post-brief
+				!=post.content.brief
+			
 block content
-	.container-post: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
-		article
-			p: a(href='/author') &larr; back to the author
-			hr
-			if !data.post
-				h2 Invalid Post.
-			else
-				header
-					h1= data.post.authorName
-
-				.post
-					if data.post.image.exists
-						if (data.isS3Enabled)
-							.image-wrap: img(src=data.post.image.url).img-responsive
-						else
-							.image-wrap: img(src="/author/images/" + data.post.image.filename).img-responsive
+	link(href="/styles/site/authorPost.min.css", rel="stylesheet")
+	.container: .row
+		.col-sm-8.col-md-9
+			.author-post-info
+				p: a(href='/author') &larr; 作者们
+				if !data.author
+					h5 同志,这人我找不到.
+				else
+					.author-name
+						!=data.author.authorName
+					.author-intro
+						!=data.author.introduction.extended
 						
-					//intro	
-					!= data.post.introduction.brief
-					!= data.post.introduction.extended
+			
+			.author-article-list
+				if data.authorPosts.length
+					each post in data.authorPosts
+						+post(post, data.isS3Enabled)
+				else
+					h5 我还在寻找灵感.

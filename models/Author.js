@@ -35,7 +35,7 @@ Author.schema.virtual('content.full').get(function() {
 });
 
 
-Author.relationship({ ref: 'Post', path: 'authors' });
+Author.relationship({ path: 'posts', ref: 'Post', refPath: 'authors'});
 
 
 Author.register();
