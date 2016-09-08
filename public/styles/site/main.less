@@ -1,3 +1,6 @@
+@import '../bootstrap/variables.less';
+@import './variables.less';
+
 .post {
   width: 100%;
   height: 100%;
@@ -28,17 +31,94 @@
     text-align: center;
   }
 
-  @media (orientation: landscape) {
-    .post-title-img {
-      width: 75vw;
-    }
-
-    .post-background {
-      opacity: .5;
-    }
-  }
-
   .post-brief {
     position: relative;
+  }
+}
+
+@media (orientation: landscape) and (min-width: @screen-sm-min) {
+  #body {
+    padding-top: @navbar-height-lg-screen;
+  }
+
+  #home-slider {
+    position: relative;
+    margin: auto;
+    width: 90vh;
+
+    .carousel-control {
+      width: auto;
+      position: fixed;
+      top: 50%;
+      bottom: auto;
+      
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+    }
+
+    .post {
+      .post-cols {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+
+        .post-col {
+          -webkit-flex: 1 1 50%;
+          flex: 1 1 50%;
+        }
+      }
+
+      .post-background {
+        height: 80vh;
+        width: 45vh;
+        position: relative;
+      }
+
+      .post-title-img {
+        position: absolute;
+        width: 45vh;
+        left: 0;
+        text-align: center;
+      }
+
+      .post-intro {
+        height: 40vh;
+        padding: 15px;
+        position: relative;
+
+        .post-brief {
+          font-size: 1.2em;
+          margin: 10px 0;
+          text-align: center;
+        }
+
+        .post-authors {
+          text-align: right;
+
+          a {
+            color: #333;
+          }
+        }
+
+        .full-text-link {
+          text-align: center;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          a {
+            color: #333;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
   }
 }

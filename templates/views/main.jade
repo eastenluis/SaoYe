@@ -1,28 +1,29 @@
 extends ../layouts/default
 
 mixin post(post)
-	.post
-			
-		if post.postImage.exists
-			div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
-			if (post.titleImage.exists)
-				.post-info
-					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
-			else 
-				.post-info
-					h1(class="post-title")
-						!=post.title
-					h5(class="post-brief") 
-						!=post.content.brief	
-		else
-			.post-info
-				h1(class="post-title")
-					!=post.title
-				h5(class="post-brief") 
+	.post: .post-cols
+			.post-col: if (post.postImage.exists)
+				div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
+				if (post.titleImage.exists)
+					.post-info
+						img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
+				else 
+					.post-info
+						h1(class="post-title")
+							!=post.title
+						h5(class="post-brief") 
+							!=post.content.brief	
+			.hidden-xs.post-col.post-intro
+				.post-brief 
 					!=post.content.brief
-					!=post.authors
+				.post-authors
+					if post.authors && post.authors.length
+							each auth, auth_i in post.authors
+								a(href='/author/' + auth.slug) ──#{auth.authorName}
+				.full-text-link
+					a(href='/articles/post/' + post.slug) 阅读全文
 
-		.slider-control(class=post.mainPageColorScheme + "-theme")
+		.slider-control(class=post.mainPageColorScheme + "-theme").visible-xs
 			a.carousel-control.left(href="#home-slider" data-slide="prev")
 				span.glyphicon.glyphicon-triangle-left
 		
@@ -49,7 +50,11 @@ block content
 							.item
 								+post(post)
 
-
+				.slider-control(class="black-theme").hidden-xs
+					a.carousel-control.left(href="#home-slider" data-slide="prev")
+						span.glyphicon.glyphicon-triangle-left
+					a.carousel-control.right(href="#home-slider" data-slide="next")
+						span.glyphicon.glyphicon-triangle-right
 		else
 			h3.text-muted There are no posts yet.
 		
