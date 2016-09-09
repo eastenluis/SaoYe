@@ -17,7 +17,7 @@ mixin post(post, isS3Enabled)
 						a(href='/articles/' + cat.key).label.dark=cat.name	
 		.post-author-date
 			
-		div.post-info
+		.post-info
 			a(href='/articles/post/' + post.slug).post-title
 				!=post.title
 			.post-brief
@@ -25,7 +25,12 @@ mixin post(post, isS3Enabled)
 
 block intro
 	.container
-		h2.article-heading= data.category ? data.category.name : 'articles / 文录'
+		h2.page-heading
+			if data.category
+				!=data.category.name
+			else
+				.page-heading-name-ch 文录 
+				.page-heading-name-en articles
 
 block content
 	link(href="/styles/site/articles.min.css", rel="stylesheet")
@@ -53,14 +58,16 @@ block content
 							else
 								li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
 				else
-					if data.category
-						h3.text-muted There are no posts in the category #{data.category.name}.
-					else
-						h3.text-muted There are no posts yet.
+					.row
+						.col-md-6
+							if data.category
+								h3.text-muted "#{data.category.name}"这集子好像是空的!
+							else
+								h3.text-muted 哎呀,竟然暴露了我们没文章的事实.
 		
 		if data.categories.length
 			.col-md-3.col-sm-5.hidden-xs
 				.list-group.category-list
-					a(href='/articles', class=!data.category ? 'active' : false).list-group-item All Categories
+					a(href='/articles', class=!data.category ? 'active' : false).list-group-item 所有的集子
 					each cat in data.categories
 						a(href='/articles/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
