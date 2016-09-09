@@ -40,10 +40,9 @@ html
 			div.container
 				// Full screen modal for every page
 				.navbar-header
-					a(href="/").navbar-brand.hidden-sm.hidden-md.hidden-lg: img(src="/images/saoye_logo_m_120x120.png")
-					a(href="/").navbar-brand.hidden-xs: img(src="/images/saoye_logo_120x120.png")
-					button(class="navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
-						span.glyphicon.glyphicon-menu-hamburger
+					img.navbar-brand.hidden-sm.hidden-md.hidden-lg(src="/images/saoye_logo_black.svg" class=" navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
+					img.navbar-brand.hidden-xs(src="/images/saoye_logo_black.svg" class=" navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
+
 				// Navigation menu in desktop mode
 				nav.navbar-desktop
 					ul.nav.navbar-nav.navbar-right
@@ -62,9 +61,12 @@ html
 									span.sr-only main navigation
 
 							.modal-body
-								.saoye-intro.text-right
-									h1(style="color:#000;") 骚也
-								
+								.saoye-intro
+									.saoye-logo
+										img(src="/images/saoye_logo_pink.svg" style="width:6em;")
+										h3(style="color:#000;") 骚也
+									.saoye-intro-text 这里是骚也的简短介绍!	
+										
 								.menu-list
 									.text-right
 										// Get options from navLinks from middleware.js
