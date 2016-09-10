@@ -21,7 +21,12 @@ mixin author(author, isS3Enabled)
 
 block intro
 	.container
-		h2.page-heading= data.category ? data.category.name : 'authors / 作者'
+		h2.page-heading
+			if data.category
+				!=data.category.name
+			else	
+				.page-heading-name-ch 作者 
+				.page-heading-name-en authors
 
 block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")

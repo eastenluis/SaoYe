@@ -4,8 +4,22 @@ extends ../layouts/default
 
 mixin post(post, isS3Enabled)
 	.post.col-md-6
+		if (post.postThumbnailImage.exists)
+			- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
+		else
+			- var postUrl = '';
+		div(style="background-image:url('" + postUrl + "');").post-thumbnail
+			.category-labels
+				if post.authors && post.authors.length
+					each auth, auth_i in post.authors
+						a(href='/author/' + auth.slug).label= auth.authorName
+					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
+				if post.categories && post.categories.length
+					each cat, cat_i in post.categories
+						a(href='/articles/' + cat.key).label.dark=cat.name
+		.post-author-date
 	
-		div.post-info
+		.post-info
 			a(href='/articles/post/' + post.slug).post-title
 				!=post.title
 			.post-brief
@@ -13,22 +27,26 @@ mixin post(post, isS3Enabled)
 			
 block content
 	link(href="/styles/site/authorPost.min.css", rel="stylesheet")
+	link(href="/styles/site/articles.min.css", rel="stylesheet")
+
 	.container: .row
 		.col-sm-8.col-md-9
 			.author-post-info
 				p: a(href='/author') &larr; 作者们
-				if !data.author
-					h5 同志,这人我找不到.
-				else
+				if data.author
 					.author-name
 						!=data.author.authorName
+					h4 我是谁?
 					.author-intro
 						!=data.author.introduction.extended
+				else
+					h5 同志,这人我找不着了.
 						
-			
-			.author-article-list
+			h4 我的作品
+			.articles.row
 				if data.authorPosts.length
 					each post in data.authorPosts
 						+post(post, data.isS3Enabled)
 				else
-					h5 我还在寻找灵感.
+					.col-md-6
+						p 我还在寻找灵感.
