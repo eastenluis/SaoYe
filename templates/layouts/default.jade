@@ -40,14 +40,18 @@ html
 			div.container
 				// Full screen modal for every page
 				.navbar-header
-					img.navbar-brand.hidden-sm.hidden-md.hidden-lg(src="/images/saoye_logo_black.svg" class=" navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
-					img.navbar-brand.hidden-xs(src="/images/saoye_logo_black.svg" class=" navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
+					img(src="/images/saoye_logo_black.svg" class=" navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
 
 				// Navigation menu in desktop mode
-				nav.navbar-desktop
-					ul.nav.navbar-nav.navbar-right
-						each link in navLinks
-							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+				mixin navbar-desktop
+					nav.navbar-desktop
+						.logo-panel
+							.logo-wrapper
+								img(src="/images/saoye_logo_black.svg" href="/")
+								.logo-name 骚也
+						ul.nav
+							each link in navLinks
+								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 
 				// Animation for the modal
 				.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")

@@ -7,7 +7,7 @@ block authorInfo
 				- var authorImageUrl = auth.authorImage.exists ? auth.authorImage.url || ('/authors/images/' + auth.authorImage.filename) : '';
 				img(src=authorImageUrl).avatar 
 				.author-info
-					.name=auth.authorName
+					a(href='/author/' + auth.slug).name= auth.authorName
 					.brief=auth.introduction.brief||'此处应有一段简短的自述。'
 
 block content

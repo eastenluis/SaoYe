@@ -1,9 +1,9 @@
 @import '../bootstrap/variables.less';
 @import './variables.less';
-
 /* Carousel (slider) */
-
-.carousel, .carousel-inner, .item, .active {
+.carousel,
+.carousel-inner,
+.item {
   height: 100%;
 }
 
@@ -16,33 +16,32 @@
 
 .carousel-inner {
   .item {
-	.transition-duration(0.3s);
-	.transition-property('left, transform');
+    .transition-duration(0.3s);
+    .transition-property('left, transform');
   }
 }
 
 .slider-control {
   &.black-theme {
-	.carousel-control {
-	  text-shadow: 0 1px 2px #fff;
-	  opacity: .7;
-	  
-	  .glyphicon {
-		color: #000;
-	  }
-	}
+    .carousel-control {
+      text-shadow: 0 1px 2px #fff;
+      opacity: .7;
+
+      .glyphicon {
+        color: #000;
+      }
+    }
   }
 
   &.white-theme {
-	
-	.carousel-control {
-	  text-shadow: 0 1px 2px #000;
-	  opacity: .7;
-	  
-	  .glyphicon {
-		color: #fff;
-	  }
-	}
+    .carousel-control {
+      text-shadow: 0 1px 2px #000;
+      opacity: .7;
+
+      .glyphicon {
+        color: #fff;
+      }
+    }
   }
 }
 
@@ -56,25 +55,23 @@
   .glyphicon {
     top: 15px;
   }
+
   &.right {
     right: 25%;
     background-image: none;
   }
+
   &.left {
     left: 25%;
     background-image: none;
   }
-  
 }
-
-
 /* Full screen modal */
-
 .fullscreen {
-  .modal-header{
-	padding: 0;	
+  .modal-header {
+    padding: 0;
   }
-  
+
   .modal-dialog {
     margin: 0;
     width: 100%;
@@ -96,33 +93,67 @@
     background: rgba(237, 237, 242, 1);
     overflow: auto;
   }
+
   .modal-body {
     ul {
       padding: 100px 0 0;
+
       li {
         padding: 10px 0;
       }
     }
+
     a {
       color: #333;
       font-size: 300%;
       font-weight: 300;
     }
   }
-  .saoye-logo {
-	
-  }
 }
 
 .navbar-desktop {
-  ul.nav.navbar-nav {
-    li {
-      a {
-        color: #333;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+
+  .logo-panel {
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+
+    .logo-wrapper {
+      text-align: center;
+      display: inline-block;
+
+      .logo-name {
+        margin-top: 10px;
+        font-size: 1.6em;
       }
+
+      img {
+        width: 80px;
+        height: 80px;
+        display: block;
+      }
+    }
+  }
+
+  ul.nav {
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+
+    li {
+      text-align: right;
+
+      a {
+        padding: 5px 15px;
+        color: #333;
+        border-left: 3px solid #FFF;
+      }
+
       &.active a {
-        background: @dark-selection-background;
-        color: #FFF;
+        color: #333;
+        border-left: 3px solid #333;
       }
     }
   }
@@ -131,6 +162,7 @@
 .navbar-default {
   background: none;
   padding: 0;
+
   .navbar-brand {
     color: #333;
     font-size: 1.5em;
@@ -144,9 +176,18 @@
   }
 }
 
+.navbar-header {
+  display: none;
+}
+
 @media (max-width: @screen-sm-min) {
+  .navbar-header {
+    display: block;
+  }
+
   .navbar-default {
     background: none;
+
     .navbar-brand {
       img {
         height: 36px;
@@ -154,15 +195,25 @@
       }
       padding: 5px 10px;
     }
-	.navbar-toggle {
-	  border: none;
-	  margin-top: 8px;
-	  margin-right: 3px;
-	}
+
+    .navbar-toggle {
+      height: 36px;
+      width: 36px;
+      border: none;
+      margin: 8px 11px;
+      padding: 0;
+
+      &:hover,
+      &:active {
+        background: none;
+      }
+    }
   }
+
   .navbar-desktop {
     display: none;
   }
+
   .modal-body {
     position: absolute;
     width: 90%;
@@ -171,15 +222,18 @@
     left: 5%;
     padding: 0;
   }
+
   .fullscreen {
     .modal-body {
       ul {
         padding: 30px 0 0;
         overflow: auto;
+
         li {
           padding: 4px 0;
         }
       }
+
       a {
         color: @dark-selection-background;
         font-size: 150%;
@@ -192,4 +246,3 @@
 .modal-backdrop {
   z-index: 0;
 }
-

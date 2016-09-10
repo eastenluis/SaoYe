@@ -5,10 +5,10 @@
 }
 
 body {
-  .font-hei(); 
+  .font-hei();
   height: 100%;
   color: #333;
-  letter-spacing: 0.065em;
+  letter-spacing: .065em;
   padding: 0;
 }
 
@@ -29,8 +29,8 @@ h3 {
 
 h4 {
   font-size: 1.25em;
-  padding-top: 0.5em;
-  padding-bottom: 0.2em;
+  padding-top: .5em;
+  padding-bottom: .2em;
   font-weight: 300;
 }
 
@@ -42,7 +42,15 @@ h6 {
   font-size: .85em;
 }
 
+.mobile-only {
+  display: none;
+}
+
 @media (max-width: @screen-sm-min) {
+  .mobile-only {
+    display: block;
+  }
+
   body {
     font-size: 16px;
   }
@@ -66,14 +74,14 @@ h6 {
   width: 100%;
   top: 5%;
   text-align: center;
-  
+
   .saoye-logo {
-	padding-bottom: 1.5em;
+    padding-bottom: 1.5em;
   }
-  
+
   .saoye-intro-text {
-	font-size: 0.9em;
-	color: #666;
+    font-size: .9em;
+    color: #666;
   }
 }
 
@@ -91,7 +99,7 @@ h6 {
 
 .navbar-toggle {
   line-height: 1;
-  color: #999
+  color: #999;
 }
 
 .navbar-header-link {
@@ -100,12 +108,12 @@ h6 {
   padding: 9px 10px;
 }
 
-.navbar-nav{
-  .active{
-	a{
-	  color: #000;
-	  background-color: #fff;
-	}
+.navbar-nav {
+  .active {
+    a {
+      color: #000;
+      background-color: #fff;
+    }
   }
 }
 
@@ -113,19 +121,18 @@ h6 {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 40px;
-  
+
   .page-heading-name-ch {
-	font-size: 1.1em;
-	letter-spacing: 0.4em;
-	text-indent: 0.4em;
-	padding: 0.2em;
-	font-weight: 400;
+    font-size: 1.1em;
+    letter-spacing: .4em;
+    text-indent: .4em;
+    padding: .2em;
+    font-weight: 400;
   }
 
   .page-heading-name-en {
-	font-size: 0.6em;
-	padding: 0.1em;
-	font-weight: 400;
+    font-size: .6em;
+    padding: .1em;
+    font-weight: 400;
   }
-
 }

@@ -7,6 +7,10 @@
   background: #ffffff;
   position: relative;
 
+  .post-portrait {
+    height: 100%;
+  }
+
   .post-background {
     position: absolute;
     background: no-repeat 50% 100%;
@@ -35,12 +39,12 @@
     position: relative;
   }
 
-  .post-intro {
+  .post-landscape {
     display: none;
   }
 }
 
-@media (orientation: landscape) and (min-width: @screen-sm-min) {
+@media (min-width: @screen-sm-min) {
   #body {
     padding-top: @navbar-height-lg-screen;
   }
@@ -48,14 +52,11 @@
   #home-slider {
     position: relative;
     margin: auto;
-    width: 120vh;
 
     .carousel-control {
       width: auto;
-      position: fixed;
-      top: 50%;
-      bottom: auto;
-      
+      position: static;
+
       &.left {
         left: 0;
       }
@@ -66,61 +67,140 @@
     }
 
     .post {
-      .post-cols {
+      .post-background {
+        position: static;
+      }
+
+      .post-portrait {
+        display: none;
+      }
+
+      .post-landscape {
+        padding: 15px;
+        margin: auto;
+        height: 100vh;
+        max-width: 1200px;
+        position: static;
         display: -webkit-flex;
         display: flex;
-        -webkit-align-items: center;
+        -webkt-align-items: center;
         align-items: center;
 
-        .post-col {
-          -webkit-flex: 1 1 50%;
-          flex: 1 1 50%;
-        }
-      }
+        .left-panel {
+          height: 100%;
+          -webkit-flex: 0 0 60%;
+          flex: 0 0 60%;
+          position: relative;
 
-      .post-background {
-        height: 80vh;
-        width: 60vh;
-        position: relative;
-      }
+          .background-image {
+            width: auto;
+            height: 100%;
+          }
 
-      .post-title-img {
-        position: absolute;
-        width: 60vh;
-        left: 0;
-        text-align: center;
-      }
-
-      .post-intro {
-        height: 60vh;
-        padding: 15px;
-        position: relative;
-        display: block;
-
-        .post-brief {
-          font-size: 1.2em;
-          margin: 10px 0;
-          text-align: center;
-        }
-
-        .post-authors {
-          text-align: right;
-
-          a {
-            color: #333;
+          .post-title-img {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            text-align: center;
           }
         }
 
-        .full-text-link {
-          text-align: center;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
+        .right-panel {
+          -webkit-flex: 1 0 300px;
+          flex: 1 0 300px;
+          min-width: 300px;
+          height: 100%;
+          padding: 15px;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-flex-direction: column;
+          flex-direction: column;
 
-          a {
-            color: #333;
-            text-decoration: underline;
+          .top-nav {
+            margin-bottom: 100px;
+          }
+
+          .post-brief {
+            font-size: 1.2em;
+            margin: 30px 0;
+            text-align: center;
+            color: #666;
+
+            .left-quote {
+              text-align: left;
+
+              img {
+                width: 50px;
+                height: 50px;
+              }
+            }
+
+            .right-quote {
+              text-align: right;
+
+              img {
+                width: 50px;
+                height: 50px;
+              }
+            }
+          }
+
+          .post-authors {
+            margin-bottom: 50px;
+            padding: 0 10px;
+
+            .post-author {
+              display: -webkit-flex;
+              display: flex;
+              -webkit-align-items: center;
+              align-items: center;
+
+              .author-info {
+                -webkit-flex: 1 1 auto;
+                flex: 1 1 auto;
+
+                .name {
+                  font-size: 1.4em;
+                }
+
+                .brief {
+                  color: #999;
+                }
+              }
+
+              .avatar {
+                -webkit-flex: 0 0 auto;
+                flex: 0 0 auto;
+
+                img {
+                  width: 100px;
+                  height: 100px;
+                  border-radius: 50%;
+                }
+              }
+            }
+
+            a {
+              color: #333;
+            }
+          }
+
+          .full-text-link {
+            font-size: 1.2em;
+            margin: 100px auto 0;
+            width: 200px;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+
+            a {
+              text-align: center;
+              -webkit-flex: 1 1 auto;
+              flex: 1 1 auto;
+              color: #333;
+              text-decoration: underline;
+            }
           }
         }
       }
