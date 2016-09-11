@@ -11,8 +11,6 @@ mixin post(post, isS3Enabled)
 		div(style="background-image:url('" + postUrl + "');").post-thumbnail
 			.category-labels
 				if post.authors && post.authors.length
-					each auth, auth_i in post.authors
-						a(href='/author/' + auth.slug).label= auth.authorName
 					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
 				if post.categories && post.categories.length
 					each cat, cat_i in post.categories
@@ -31,14 +29,16 @@ block content
 
 	.container: .row
 		.col-sm-8.col-md-9
+			p: a(href='/author') &larr; 作者们
 			.author-post-info
-				p: a(href='/author') &larr; 作者们
 				if data.author
+					.author-avatar
+						if data.author.authorImage.exists
+							img(src="" + data.author.authorImage.url || "/author/images/" + data.author.authorImage.filename)
 					.author-name
 						!=data.author.authorName
-					h4 我是谁?
 					.author-intro
-						!=data.author.introduction.extended
+						!=data.author.introduction.brief
 				else
 					h5 同志,这人我找不着了.
 						

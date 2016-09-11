@@ -5,10 +5,11 @@ block authorInfo
 		each auth in data.post.authors
 			.author
 				- var authorImageUrl = auth.authorImage.exists ? auth.authorImage.url || ('/authors/images/' + auth.authorImage.filename) : '';
-				img(src=authorImageUrl).avatar 
+				.avatar
+					img(src=authorImageUrl) 
 				.author-info
 					a(href='/author/' + auth.slug).name= auth.authorName
-					.brief=auth.introduction.brief||'此处应有一段简短的自述。'
+					.brief!=auth.introduction.brief||'此处应有一段简短的自述。'
 
 block content
 	link(href="/styles/site/post.min.css", rel="stylesheet")
@@ -55,8 +56,7 @@ block content
 						header 编辑手札
 						.edtor-note!=data.post.content.editorNote||'<p>一段来自己编辑们的评论。</p><p>可能有多行。</p>'
 					.post-copyright 
-						本文内同为骚也团队原创，未经骚也及原作者授权，任何个人或组织不得抄袭、转载本文内容。任何个人或组织若有意愿使用本文任何原创内容，
-						请发邮件至 #[a(href="mailto:mail@saoye.me") mail@saoye.me]，并注明用途。所有原创作品版权受《中华人民共和国著作权法》、Canadian Copyright Act等法律法规保护。
+						
 			.fill-space.hidden-md.hidden-lg
 		section.col-md-4.side-col 
 			.authors-container

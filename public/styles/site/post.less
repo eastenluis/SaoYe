@@ -14,7 +14,6 @@
   }
 }
 
-
 .carousel-control.post-link {
   top: 90%;
   position: absolute;
@@ -40,29 +39,41 @@
   }
 
   .authors-container {
-      .author {
-        display: -webkit-flex;
-        display: flex;
+    .author {
+      display: -webkit-flex;
+      display: flex;
 
-        .avatar {
-          width: 100px;
-          height: 100px;
-          display: block;
-        }
+      .avatar {
+        width: 100px;
+        height: 100px;
+        -webkit-flex: 0 0 auto;
+        flex: 0 0 auto;
 
-        .author-info {
-          padding: 10px;
-
-          .name {
-            font-size: 1.2em;
-            font-weight: bold;
-          }
-
-          .brief {
-            color: #999;
-          }
+        img {
+          width: 100%;
+          height: 100%;
         }
       }
+
+      .author-info {
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 10px;
+
+        a {
+          color: #333;
+        }
+
+        .name {
+          font-size: 1.2em;
+          font-weight: bold;
+        }
+
+        .brief {
+          color: #999;
+        }
+      }
+    }
   }
 
   .main-col {
@@ -97,7 +108,7 @@
           border-left: 2px solid @ohdo-brown;
         }
       }
-      
+
       .authors-container {
         margin-top: 30px;
         border-top: 1px solid #333;
@@ -126,7 +137,7 @@
         margin-top: 30px;
         border-top: 1px solid #333;
         color: #999;
-        font-size: 0.9em;
+        font-size: .9em;
       }
     }
 
@@ -214,7 +225,7 @@
 
     .side-col {
       padding-top: 20px;
-      
+
       >:first-child {
         border-top: 1px solid #333;
       }

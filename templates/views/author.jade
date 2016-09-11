@@ -4,18 +4,18 @@ extends ../layouts/default
 
 mixin author(author, isS3Enabled)
 	.author.col-md-6
-		a(href='/author/' + author.slug)
-			.author-introduction
-				h2(class="author-name")
+		.author-introduction
+			div(class="author-name")
+				a(href='/author/' + author.slug) 
 					!=author.authorName
-				p(class="author-brief")
-					!=author.introduction.brief
-				
-			if author.authorImage.exists
-				- var authorImgUrl = isS3Enabled ? author.authorImage.url : "/author/images/" + author.authorImage.filename;
-			else
-				- var authorImgUrl = "";
-			.author-image(style="background-image:url('" + authorImgUrl + "');")
+			div(class="author-brief")
+				!=author.introduction.brief
+			
+		if author.authorImage.exists
+			- var authorImgUrl = isS3Enabled ? author.authorImage.url : "/author/images/" + author.authorImage.filename;
+		else
+			- var authorImgUrl = "";
+		.author-image(style="background-image:url('" + authorImgUrl + "');")
 
 	
 
