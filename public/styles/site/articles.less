@@ -18,15 +18,18 @@ body {
   }
 }
 
-
 .list-group.category-list {
   a {
     border-radius: 0;
     border-left: 0 none;
     border-right: 0 none;
+    color: #777;
 
     &.active {
-      background-color: @dark-selection-background;
+      border: 0 none;
+      border-left: 2px solid #333;
+      background: none;
+      color: #333;
     }
   }
 }
@@ -51,15 +54,10 @@ body {
 
         .label {
           display: inline-block;
-          background-color: @kihada-yellow;
+          background-color: #333;
+          color: #FFF;
           padding: .3em .6em;
-          color: #333;
           border-radius: 0;
-
-          &.dark {
-            background-color: #333;
-            color: #FFF;
-          }
 
           &+.label {
             border-left: 1px solid #FFF;
@@ -67,7 +65,8 @@ body {
         }
 
         a.label {
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             text-decoration: underline;
           }
         }

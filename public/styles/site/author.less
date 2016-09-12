@@ -11,10 +11,13 @@ body {
   }
 }
 
+.navbar-default {
+  background: #FFF;
+}
+
 .author {
-  min-height: 6em;
-  margin-top: .2em;
-  margin-bottom: .2em;
+  max-width: 500px;
+  margin: 15px auto;
   overflow: auto;
   display: -webkit-flex;
   display: flex;
@@ -24,8 +27,9 @@ body {
   }
 
   .author-introduction {
-    -webkit-flex: 0 0 75%;
-    flex: 0 0 75%;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding-left: 1em;
 
     .author-name {
       font-size: 1.7em;
@@ -38,11 +42,12 @@ body {
   }
 
   .author-image {
-    -webkit-flex: 0 0 25%;
-    flex: 0 0 25%;
-    height: 5em;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    img {
+      width: 6em;
+      height: 6em;
+      border-radius: 50%;
+    }
   }
 }

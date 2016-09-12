@@ -24,9 +24,9 @@ Author.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	uploader: { type: Types.Relationship, ref: 'User', index: true },
 	authorImage: authorImageObj,
+	order: {type: Types.Number },
 	introduction: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 }
+		brief: { type: Types.Html, wysiwyg: true, height: 150 }
 	}
 });
 

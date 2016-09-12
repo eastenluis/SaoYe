@@ -22,8 +22,6 @@ mixin post(post)
 			.left-panel(class="post-background")
 				+postImage(post)
 			.right-panel
-				.top-nav
-					+navbar-desktop()
 				.post-authors
 					if post.authors && post.authors.length
 							each auth, auth_i in post.authors
@@ -31,7 +29,7 @@ mixin post(post)
 								.post-author
 									.author-info
 										a(href='/author/' + auth.slug).name= auth.authorName
-										.brief=auth.introduction.brief||'此处应有一段简短的自述。'
+										.brief!=auth.introduction.brief||'此处应有一段简短的自述。'
 									.avatar 
 										img(src=authorImageUrl)
 				.post-brief

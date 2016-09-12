@@ -39,19 +39,16 @@ html
 			//- ... or completely change this header to suit your design.
 			div.container
 				// Full screen modal for every page
-				.navbar-header
+				.navbar-header.navbar-mobile
 					img(src="/images/saoye_logo_black.svg" class=" navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
 
 				// Navigation menu in desktop mode
-				mixin navbar-desktop
-					nav.navbar-desktop
-						.logo-panel
-							.logo-wrapper
-								img(src="/images/saoye_logo_black.svg" href="/")
-								.logo-name 骚也
-						ul.nav
-							each link in navLinks
-								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+				.navbar-desktop
+					nav.navbar-header
+						a(href="/").navbar-brand: img(src="/images/saoye_logo_120x120.png")
+					ul.nav.navbar-nav.pull-right
+						each link in navLinks
+							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 
 				// Animation for the modal
 				.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")

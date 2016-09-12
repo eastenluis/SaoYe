@@ -11,10 +11,10 @@ mixin post(post, isS3Enabled)
 		div(style="background-image:url('" + postUrl + "');").post-thumbnail
 			.category-labels
 				if post.authors && post.authors.length
-					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
+					span.label=post._.publishedDate.format('YYYY.MM.DD')
 				if post.categories && post.categories.length
 					each cat, cat_i in post.categories
-						a(href='/articles/' + cat.key).label.dark=cat.name
+						a(href='/articles/' + cat.key).label=cat.name
 		.post-author-date
 	
 		.post-info
@@ -25,10 +25,9 @@ mixin post(post, isS3Enabled)
 			
 block content
 	link(href="/styles/site/authorPost.min.css", rel="stylesheet")
-	link(href="/styles/site/articles.min.css", rel="stylesheet")
 
 	.container: .row
-		.col-sm-8.col-md-9
+		.col-sm-8.col-sm-offset-2
 			p: a(href='/author') &larr; 作者们
 			.author-post-info
 				if data.author

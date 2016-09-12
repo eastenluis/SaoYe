@@ -11,10 +11,10 @@ mixin post(post, isS3Enabled)
 				if post.authors && post.authors.length
 					each auth, auth_i in post.authors
 						a(href='/author/' + auth.slug).label= auth.authorName
-					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
+					span.label=post._.publishedDate.format('YYYY.MM.DD')
 				if post.categories && post.categories.length
 					each cat, cat_i in post.categories
-						a(href='/articles/' + cat.key).label.dark=cat.name	
+						a(href='/articles/' + cat.key).label=cat.name	
 		.post-author-date
 			
 		.post-info
