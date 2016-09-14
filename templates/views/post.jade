@@ -45,8 +45,8 @@ block content
 					if (data.post.postThumbnailImage.exists)
 						- var postUrl = data.post.postThumbnailImage.url || ('/articles/post/images/' + data.post.postThumbnailImage.filename);
 						div(style="background-image:url('" + postUrl + "');").post-thumbnail
-					blockquote.post-abstract
-						div!=data.post.content.abstract
+					blockquote.post-intro
+						div!=data.post.content.intro
 					.post-body
 						!= data.post.content.full
 					.hidden-md.hidden-lg.authors-container
