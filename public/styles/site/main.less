@@ -1,8 +1,8 @@
 @import '../bootstrap/variables.less';
 @import './variables.less';
 
-.container-post {
-  max-width: 960px;
+.container-main {
+  max-width: 800px;
 }
 
 .post {
@@ -16,7 +16,7 @@
     background: no-repeat 50% 100%;
     background-size: cover;
     width: 100%;
-    padding: 28% 0;
+    padding: 37.7% 0;
     background-position: center;
   }
 
@@ -57,7 +57,7 @@
 
     img {
       width: 100%;
-      max-width: 600px;
+      max-width: 628px;
       height: auto;
     }
   }
@@ -94,6 +94,20 @@
 
     .post-title {
       top: 15px;
+      img {
+        max-width: 500px;
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-xs-min) {
+  .post {
+    .post-title {
+      top: 5px;
+      img {
+        max-width: 300px;
+      }
     }
   }
 }

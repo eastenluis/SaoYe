@@ -15,7 +15,7 @@ mixin postImage(post)
 					each cat, cat_i in post.categories
 						a(href='/articles/' + cat.key).label=cat.name
 	else 
-		.post-info
+		.post-title
 			h1(class="post-title")
 				!=post.title
 			h5(class="post-brief") 
@@ -30,7 +30,7 @@ mixin post(post)
 
 block content
 	link(href="/styles/site/main.min.css", rel="stylesheet")
-	.container.container-post
+	.container.container-main
 		if data.posts.results.length
 			each post in data.posts.results
 				+post(post)
