@@ -25,27 +25,24 @@ mixin post(post, isS3Enabled)
 			
 block content
 	link(href="/styles/site/authorPost.min.css", rel="stylesheet")
-
-	.container: .row
-		.col-sm-8.col-sm-offset-2
-			p: a(href='/author') &larr; 作者们
-			.author-post-info
-				if data.author
-					.author-avatar
-						if data.author.authorImage.exists
-							img(src="" + data.author.authorImage.url || "/author/images/" + data.author.authorImage.filename)
-					.author-name
-						!=data.author.authorName
-					.author-intro
-						!=data.author.introduction.brief
-				else
-					h5 同志,这人我找不着了.
-						
-			h4 作品
-			.articles.row
-				if data.authorPosts.length
-					each post in data.authorPosts
-						+post(post, data.isS3Enabled)
-				else
-					.col-md-6
-						p 我还在寻找灵感.
+	.container.conatiner-authorpost: .row: .col-xs-12
+		.author-post-info
+			if data.author
+				.author-avatar
+					if data.author.authorImage.exists
+						img(src="" + data.author.authorImage.url || "/author/images/" + data.author.authorImage.filename)
+				.author-name
+					!=data.author.authorName
+				.author-intro
+					!=data.author.introduction.brief
+			else
+				h5 没有找到这个作者。
+					
+		h3.section-header #{data.author.authorName}的作品
+		.articles.row
+			if data.authorPosts.length
+				each post in data.authorPosts
+					+post(post, data.isS3Enabled)
+			else
+				.col-xs-12
+					p(style="text-align: center;") 我还在寻找灵感。

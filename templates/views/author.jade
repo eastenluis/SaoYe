@@ -3,7 +3,7 @@
 extends ../layouts/default
 
 mixin author(author, isS3Enabled)
-	.author.col-md-6
+	.author.col-sm-6
 		if author.authorImage.exists
 			- var authorImgUrl = isS3Enabled ? author.authorImage.url : "/author/images/" + author.authorImage.filename;
 		else
@@ -28,7 +28,7 @@ block intro
 
 block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")
-	.container
+	.container.container-author
 		.row.author-list
 			if data.authors.results.length
 				each author in data.authors.results
@@ -48,14 +48,4 @@ block content
 						else
 							li.disabled: a(href='?page=' + data.authors.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
 			else
-				h3.text-muted There are no author yet.
-		
-		//categories part
-			
-		//if data.categories.length
-		//	.col-sm-4.col-md-3
-		//		h2 Categories
-		//		.list-group(style='margin-top: 70px;')
-		//			a(href='/author', class=!data.category ? 'active' : false).list-group-item All Categories
-		//			each cat in data.categories
-		//				a(href='/author/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
+				p.text-muted 

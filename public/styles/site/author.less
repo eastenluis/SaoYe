@@ -5,41 +5,45 @@
   background: #FFF;
 }
 
-.author {
-  max-width: 500px;
-  margin: 15px auto;
-  overflow: auto;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
+.container-author {
+  max-width: 960px;
 
-  a {
-    color: #333;
-  }
+  .author {
+    max-width: 500px;
+    margin: 15px auto;
+    overflow: auto;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
 
-  .author-introduction {
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
-    padding-left: 1em;
-
-    .author-name {
-      font-size: 1.7em;
+    a {
+      color: #333;
     }
 
-    .author-brief {
-      font-size: 0.9em;
-      color: #111;
-    }
-  }
+    .author-introduction {
+      -webkit-flex: 1 1 auto;
+      flex: 1 1 auto;
+      padding-left: 1em;
 
-  .author-image {
-    -webkit-flex: 0 0 auto;
-    flex: 0 0 auto;
-    img {
-      width: 6em;
-      height: 6em;
-      border-radius: 50%;
+      .author-name {
+        font-size: 1.7em;
+      }
+
+      .author-brief {
+        font-size: 0.9em;
+        color: #111;
+      }
+    }
+
+    .author-image {
+      -webkit-flex: 0 0 auto;
+      flex: 0 0 auto;
+      img {
+        width: 6em;
+        height: 6em;
+        // border-radius: 50%;
+      }
     }
   }
 }

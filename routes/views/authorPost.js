@@ -43,12 +43,12 @@ exports = module.exports = function(req, res) {
 			.where('state', 'published')
 			.where('authors')
 			.populate('categories')
+			.limit(10)
 			.in([locals.data.author]);
 		
 		q.exec(function(err, results) {
 			locals.data.authorPosts = results;
 			next(err);
-			
 		});
 	});
 
