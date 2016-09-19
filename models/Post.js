@@ -29,13 +29,13 @@ Post.add({
 	postBannerImage: postImageObj,
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 50 },
-        abstract: { type: Types.Html, wysiwyg: true, height: 150 },
+        extract: { type: Types.Html, wysiwyg: true, height: 150 },
+        intro: { type: Types.Html, wysiwyg: true, height: 150 },
         extended: { type: Types.Html, wysiwyg: true, height: 400 },
         editorNote: { type: Types.Html, wysiwyg: true, height: 150 }
     },
     categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	authors: { type: Types.Relationship, ref: 'Author', many: true },
-	isPromoted: { type: Types.Boolean }, //Article will be posted on homepage if true
 	mainPageColorScheme: { type: Types.Select, options: 'white, black', default: 'white'} 
 });
 

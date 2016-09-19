@@ -34,7 +34,7 @@ exports = module.exports = function(req, res) {
 						.where('authors', result.authors[0].id)
 						.where('_id').ne(locals.data.post.id)
 						.sort('-publishedDate')
-						.limit('4').exec();
+						.limit(4).exec();
 				}
 				return Promise.resolve([]);
 			}, function(err) {

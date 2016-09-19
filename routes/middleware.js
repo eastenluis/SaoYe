@@ -25,9 +25,9 @@ exports.initLocals = function(req, res, next) {
 	
 	locals.navLinks = [
 		{ label: 'home / 主页',		key: 'home',		href: '/' },
-		{ label: 'articles / 文录',		key: 'articles',		href: '/articles' },
+		{ label: 'articles / 文章',		key: 'articles',		href: '/articles' },
 		{ label: 'authors / 作者',		key: 'author',		href: '/author' },
-		{ label: 'about / 我们', 		key: 'about',		href: '/about' }
+		{ label: 'about / 关于', 		key: 'about',		href: '/about' }
 	];
 	
 	locals.user = req.user;

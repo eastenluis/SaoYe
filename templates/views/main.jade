@@ -1,13 +1,21 @@
 extends ../layouts/default
 
 mixin postImage(post)
-	if (post.postImage.exists)
-		div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
-		if (post.titleImage.exists)
+	if (post.postThumbnailImage.exists)
+		div(class="post-background", style="background-image:url(" + (post.postThumbnailImage.url || "/post/images/" + post.postThumbnailImage.filename) + ")")
+			if (post.titleImage.exists)
+				.post-title
+					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
 			.post-info
-				img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
+				if post.authors && post.authors.length
+					each auth, auth_i in post.authors
+						a(href='/author/' + auth.slug).label= auth.authorName
+					span.label=post._.publishedDate.format('YYYY.MM.DD')
+				if post.categories && post.categories.length
+					each cat, cat_i in post.categories
+						a(href='/articles/' + cat.key).label=cat.name
 	else 
-		.post-info
+		.post-title
 			h1(class="post-title")
 				!=post.title
 			h5(class="post-brief") 
@@ -15,64 +23,16 @@ mixin postImage(post)
 
 mixin post(post)
 	.post
-		// Mobile Style
-		.mobile-only.post-portrait: +postImage(post)
-		// Landscape Desktop
-		.post-landscape
-			.left-panel(class="post-background")
-				+postImage(post)
-			.right-panel
-				.top-nav
-					+navbar-desktop()
-				.post-authors
-					if post.authors && post.authors.length
-							each auth, auth_i in post.authors
-								- var authorImageUrl = auth.authorImage.exists ? auth.authorImage.url || ('/authors/images/' + auth.authorImage.filename) : '';
-								.post-author
-									.author-info
-										a(href='/author/' + auth.slug).name= auth.authorName
-										.brief=auth.introduction.brief||'此处应有一段简短的自述。'
-									.avatar 
-										img(src=authorImageUrl)
-				.post-brief
-					div.left-quote
-						img(src="/images/left-quote.svg") 
-					!{post.content.brief}  
-					div.right-quote
-						img(src="/images/right-quote.svg") 
-				.full-text-link
-					a(href="#home-slider" data-slide="prev")
-						span.glyphicon.glyphicon-triangle-left
-					a(href='/articles/post/' + post.slug) 阅读全文
-					a(href="#home-slider" data-slide="next")
-						span.glyphicon.glyphicon-triangle-right
-		// Mobile only.
-		.slider-control(class=post.mainPageColorScheme + "-theme").mobile-only
-			a.carousel-control.left(href="#home-slider" data-slide="prev")
-				span.glyphicon.glyphicon-triangle-left
-		
-			a.carousel-control.right(href="#home-slider" data-slide="next")
-				span.glyphicon.glyphicon-triangle-right
-			
-			a.carousel-control.post-link(href='/articles/post/' + post.slug)
-				span.glyphicon.glyphicon-record
-
+		+postImage(post)
+		.post-brief
+			!{post.content.extract}   
+		a(href='/articles/post/' + post.slug).full-text-link 阅读全文
 
 block content
 	link(href="/styles/site/main.min.css", rel="stylesheet")
-	if data.posts.results.length
-		#home-slider(data-interval="false" data-ride="carousel").carousel.slide
-			.carousel-inner
-				- var i = 0
-				each post in data.posts.results
-					- i++
-					if i == 1
-						.item.active
-							+post(post)
-					else
-						.item
-							+post(post)
-	else
-		h3.text-muted There are no posts yet.
-		
-script $(document).ready(function(){$('.carousel').carousel('cycle')});
+	.container.container-main
+		if data.posts.results.length
+			each post in data.posts.results
+				+post(post)
+		else
+			h3.text-muted 敬请期待最新文章！

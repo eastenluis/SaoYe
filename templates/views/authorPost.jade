@@ -11,12 +11,10 @@ mixin post(post, isS3Enabled)
 		div(style="background-image:url('" + postUrl + "');").post-thumbnail
 			.category-labels
 				if post.authors && post.authors.length
-					each auth, auth_i in post.authors
-						a(href='/author/' + auth.slug).label= auth.authorName
-					span.label.dark=post._.publishedDate.format('YYYY.MM.DD')
+					span.label=post._.publishedDate.format('YYYY.MM.DD')
 				if post.categories && post.categories.length
 					each cat, cat_i in post.categories
-						a(href='/articles/' + cat.key).label.dark=cat.name
+						a(href='/articles/' + cat.key).label=cat.name
 		.post-author-date
 	
 		.post-info
@@ -27,26 +25,24 @@ mixin post(post, isS3Enabled)
 			
 block content
 	link(href="/styles/site/authorPost.min.css", rel="stylesheet")
-	link(href="/styles/site/articles.min.css", rel="stylesheet")
-
-	.container: .row
-		.col-sm-8.col-md-9
-			.author-post-info
-				p: a(href='/author') &larr; 作者们
-				if data.author
-					.author-name
-						!=data.author.authorName
-					h4 我是谁?
-					.author-intro
-						!=data.author.introduction.extended
-				else
-					h5 同志,这人我找不着了.
-						
-			h4 我的作品
-			.articles.row
-				if data.authorPosts.length
-					each post in data.authorPosts
-						+post(post, data.isS3Enabled)
-				else
-					.col-md-6
-						p 我还在寻找灵感.
+	.container.conatiner-authorpost: .row: .col-xs-12
+		.author-post-info
+			if data.author
+				.author-avatar
+					if data.author.authorImage.exists
+						img(src="" + data.author.authorImage.url || "/author/images/" + data.author.authorImage.filename)
+				.author-name
+					!=data.author.authorName
+				.author-intro
+					!=data.author.introduction.brief
+			else
+				h5 没有找到这个作者。
+					
+		h3.section-header #{data.author.authorName}的作品
+		.articles.row
+			if data.authorPosts.length
+				each post in data.authorPosts
+					+post(post, data.isS3Enabled)
+			else
+				.col-xs-12
+					p(style="text-align: center;") 我还在寻找灵感。

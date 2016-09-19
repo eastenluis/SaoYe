@@ -1,10 +1,6 @@
 @import '../bootstrap/variables.less';
 @import './variables.less';
 
-body {
-  padding-top: @navbar-height-lg-screen;
-}
-
 .navbar-default {
   background: #FFF;
 
@@ -18,48 +14,67 @@ body {
   }
 }
 
+.conatiner-articles {
+  max-width: 800px;
 
-.list-group.category-list {
+  .text-muted {
+    text-align: center;
+  }
+}
+
+.category-list {
+  text-align: center;
+  margin-bottom: 40px;
+
   a {
+    display: inline-block;
     border-radius: 0;
     border-left: 0 none;
     border-right: 0 none;
+    color: #777;
+    padding: 5px;
+    margin: 0 5px;
+
+    &:hover {
+      color: #555;
+    }
 
     &.active {
-      background-color: @dark-selection-background;
+      border: 0 none;
+      border-bottom: 2px solid #333;
+      background: none;
+      color: #333;
     }
   }
 }
 
 .articles {
   .post {
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
+    max-width: 480px;
 
     .post-thumbnail {
       display: block;
-      width: 100vm;
-      padding: 28%;
+      width: 100%;
+      padding: 19.4% 0;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       position: relative;
+      margin-bottom: 10px;
 
       .category-labels {
         position: absolute;
+        line-height: 1;
         left: 0;
         top: 0;
 
         .label {
           display: inline-block;
-          background-color: @kihada-yellow;
+          background-color: #333;
+          color: #FFF;
           padding: .3em .6em;
-          color: #333;
           border-radius: 0;
-
-          &.dark {
-            background-color: #333;
-            color: #FFF;
-          }
 
           &+.label {
             border-left: 1px solid #FFF;
@@ -67,7 +82,8 @@ body {
         }
 
         a.label {
-          &:hover, &:focus {
+          &:hover,
+          &:focus {
             text-decoration: underline;
           }
         }
@@ -80,12 +96,35 @@ body {
       }
 
       .post-title {
+        display: block;
         font-size: 1.5em;
+        margin-bottom: 5px;
       }
 
       .post-brief {
-        font-size: .9em;
+        font-size: 1em;
         color: #555;
+      }
+    }
+  }
+
+  .pagination-container {
+    text-align: center;
+
+    .pagination {
+      a {
+        border: 0 none;
+        border-radius: 0;
+      }
+
+      li {
+        &.active {
+          a {
+            color: #333;
+            background: none;
+            border-bottom: 2px solid #333;
+          }
+        }
       }
     }
   }

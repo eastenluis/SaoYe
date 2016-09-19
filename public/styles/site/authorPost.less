@@ -1,19 +1,94 @@
 @import '../bootstrap/variables.less';
 @import './variables.less';
 
-body {
-  padding-top: @navbar-height-lg-screen;
+.navbar-default {
+  background: #FFF;
+}
+
+.conatiner-authorpost {
+  max-width: 800px;
+  padding-bottom: 20px;
 }
 
 .author-post-info {
-  .author-name {
-	font-size: 2.5em;
-	text-align: center;
-	padding-top: 1em;
-	padding-bottom: 2em;
+  margin: 15px 0 40px;
+  text-align: center;
+
+  .author-avatar {
+    img {
+      width: 150px;
+      height: 150px;
+      // border-radius: 50%;
+    }
+    margin-bottom: 20px;
   }
-  
+
+  .author-name {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
   .author-intro {
-	padding-bottom: 1em;
+    margin-bottom: 40px;
+  }
+}
+
+.section-header {
+  font-size: 1.5em;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.post {
+  margin-bottom: 20px;
+
+  .post-thumbnail {
+    display: block;
+    width: 100vm;
+    padding: 28%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    .category-labels {
+      position: absolute;
+      left: 0;
+      top: 0;
+
+      .label {
+        display: inline-block;
+        background-color: #333;
+        color: #FFF;
+        padding: .3em .6em;
+        border-radius: 0;
+
+        &+.label {
+          border-left: 1px solid #FFF;
+        }
+      }
+
+      a.label {
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .post-info {
+    a {
+      color: #333;
+    }
+
+    .post-title {
+      font-size: 1.5em;
+    }
+
+    .post-brief {
+      font-size: .9em;
+      color: #555;
+    }
   }
 }
