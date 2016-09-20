@@ -28,8 +28,8 @@ block content
 				if !data.post
 					h2 Invalid Post.
 				else
-					if (data.post.postThumbnailImage.exists)
-						- var postUrl = data.post.postThumbnailImage.url || ('/articles/post/images/' + data.post.postThumbnailImage.filename);
+					if (data.post.postImage.exists)
+						- var postUrl = data.post.postImage.url || ('/post/images/' + data.post.postImage.filename);
 						header(style="background-image:url('" + postUrl + "');").post-header
 							if (data.post.titleImage.exists)
 								.post-title

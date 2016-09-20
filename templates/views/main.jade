@@ -1,8 +1,8 @@
 extends ../layouts/default
 
 mixin postImage(post)
-	if (post.postThumbnailImage.exists)
-		div(class="post-background", style="background-image:url(" + (post.postThumbnailImage.url || "/post/images/" + post.postThumbnailImage.filename) + ")")
+	if (post.postImage.exists)
+		div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
 			if (post.titleImage.exists)
 				.post-title
 					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
@@ -25,7 +25,7 @@ mixin post(post)
 	.post
 		+postImage(post)
 		.post-brief
-			!{post.content.extract}   
+			!=post.content.extract
 		a(href='/articles/post/' + post.slug).full-text-link 阅读全文
 
 block content
