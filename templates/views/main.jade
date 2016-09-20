@@ -15,8 +15,8 @@ mixin postImage(post)
 					each cat, cat_i in post.categories
 						a(href='/articles/' + cat.key).label=cat.name
 	else 
-		.post-title
-			h1(class="post-title")
+		.post-title-text
+			h1(class="post-title-text")
 				!=post.title
 			h5(class="post-brief") 
 				!=post.content.brief	
@@ -27,6 +27,7 @@ mixin post(post)
 		.post-brief
 			!=post.content.extract
 		a(href='/articles/post/' + post.slug).full-text-link 阅读全文
+		hr
 
 block content
 	link(href="/styles/site/main.min.css", rel="stylesheet")

@@ -21,7 +21,8 @@ var params = {
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+	'signin logo': '/images/saoye_logo_white.png'
 };
 if (process.env.MONGOLAB_URI)
     params.mongo = process.env.MONGOLAB_URI;
@@ -48,7 +49,8 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories', 'authors'],
+	'posts': ['posts', 'post-categories'],
+	'authors': 'authors',
 	'users': 'users'
 });
 

@@ -3,10 +3,10 @@ extends ../layouts/default
 mixin post(post, isS3Enabled)
 	.col-sm-6
 		.post
-			if (post.postImage.exists)
-				- var postUrl = isS3Enabled ? post.postImage.url : ('/post/images/' + post.postImage.filename);
+			if (post.postThumbnailImage.exists)
+				- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
 			else 
-				- var postUrl = ''; 
+				- var postUrl = '/images/saoye_logo_black.svg'; 
 			div(style="background-image:url('" + postUrl + "');").post-thumbnail
 				.category-labels
 					if post.authors && post.authors.length
