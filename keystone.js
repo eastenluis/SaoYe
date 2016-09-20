@@ -11,7 +11,7 @@ var keystone = require('keystone');
 
 var params = {
 	'name': 'Saoye',
-	'brand': 'Saoye',
+	'brand': '骚也',
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
@@ -49,9 +49,9 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-categories'],
-	'authors': 'authors',
-	'users': 'users'
+	'文章及分类': ['posts', 'post-categories'],
+	'作者': 'authors',
+	'后台用户': 'users'
 });
 
 // Add a new resource to the root file

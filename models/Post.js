@@ -26,7 +26,7 @@ Post.add({
 	titleImage: titleImageObj,
     postImage: postImageObj, 
 	postThumbnailImage: postThumbnailImageObj,
-	postBannerImage: postImageObj,
+
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 50 },
         extract: { type: Types.Html, wysiwyg: true, height: 150 },
@@ -36,7 +36,6 @@ Post.add({
     },
     categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	authors: { type: Types.Relationship, ref: 'Author', many: true },
-	mainPageColorScheme: { type: Types.Select, options: 'white, black', default: 'white'} 
 });
 
 Post.schema.virtual('content.full').get(function() {

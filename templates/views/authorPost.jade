@@ -7,7 +7,7 @@ mixin post(post, isS3Enabled)
 		if (post.postThumbnailImage.exists)
 			- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
 		else
-			- var postUrl = '';
+			- var postUrl = '/images/saoye_logo_black.svg';
 		div(style="background-image:url('" + postUrl + "');").post-thumbnail
 			.category-labels
 				if post.authors && post.authors.length
