@@ -30,7 +30,7 @@ block content
 			if data.author
 				.author-avatar
 					if data.author.authorImage.exists
-						- var authorImgUrl = isS3Enabled ? data.author.authorImage.url : "/author/images/" + data.author.authorImage.filename;
+						- var authorImgUrl = data.author.authorImage.url || ("/author/images/" + data.author.authorImage.filename);
 					else
 						- var authorImgUrl = "";
 				
