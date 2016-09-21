@@ -40,27 +40,18 @@ block content
 					a(href='/articles', class=!data.category ? 'active' : false) 所有文章
 					each cat in data.categories
 						a(href='/articles/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false)= cat.name
-		.articles.row
+		.row.articles
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
-				if data.posts.results.length
-					each post in data.posts.results
-						+post(post, data.isS3Enabled)
-					if data.posts.totalPages > 1
-						.col-xs-12.pagination-container
-							ul.pagination
-								if data.posts.previous
-									li: a(href='?page=' + data.posts.previous): span.glyphicon.glyphicon-chevron-left
-								else
-									li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-								each p, i in data.posts.pages
-									li(class=data.posts.currentPage == p ? 'active' : null)
-										a(href='?page=' + (p == '...' ? (i ? data.posts.totalPages : 1) : p ))= p
-								if data.posts.next
-									li: a(href='?page=' + data.posts.next): span.glyphicon.glyphicon-chevron-right
-								else
-									li.disabled: a(href='?page=' + data.posts.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+				if data.posts.length > 0
+					#post-list
+						each post in data.posts
+							+post(post, data.isS3Enabled)
+							
+					if data.posts.length < 10
+						.col-xs-12.button-container
+							button#load-more(type="button").btn 更多文章
 				else
 					.row
 						.col-md-6
