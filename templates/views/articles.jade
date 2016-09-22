@@ -16,14 +16,29 @@ mixin post(post, isS3Enabled)
 					if post.categories && post.categories.length
 						each cat, cat_i in post.categories
 							a(href='/articles/' + cat.key).label=cat.name	
-			.post-author-date
-				
 			.post-info
 				a(href='/articles/post/' + post.slug).post-title
 					!=post.title
 				.post-brief
 					!=post.content.brief
 
+block clientTmpl
+	//- JS Render template 
+	script(id="postTmpl", type="text/x-jsrender")
+		.col-sm-6
+			.post
+				div(style="background-image:url('{{:imageUrl}}');").post-thumbnail
+					.category-labels
+						| {{for authors}} 
+						|	<a href="/author/{{:slug}}" class="label">{{:authorName}}</a>
+						| {{/for}}
+						| <span class="label">{{:date}}</span>
+						| {{for categories}}
+						| 	<a href="/articles/{{:key}}" class="label">{{:name}}</a>
+						| {{/for}}	
+				.post-info
+					| <a href="/articles/post/{{:slug}}" class="post-title">{{>title}}</a>
+					| <div class="post-brief">{{>brief}}</div>
 block intro
 	.container
 		h2.page-heading
@@ -49,10 +64,14 @@ block content
 						each post in data.posts
 							+post(post, data.isS3Enabled)
 							
-					if data.posts.length < 10
+					if data.posts.length >= 2
 						.col-xs-12.button-container
 							button#load-more(type="button").btn 更多文章
 				else
 					.row
 						.col-md-6
 							p.text-muted 我们抓蝴蝶去了。
+
+block js
+	script(src="/js/jsrender.min.js")
+	script(src="/js/articles-page.js")
