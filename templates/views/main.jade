@@ -35,5 +35,8 @@ block content
 		if data.posts.results.length
 			each post in data.posts.results
 				+post(post)
+			.end-panel
+				a(href="/articles",id="view-articles") 查看所有文章
+				hr
 		else
 			h3.text-muted 敬请期待最新文章！

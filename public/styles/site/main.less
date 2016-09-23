@@ -65,28 +65,41 @@
   .post-brief {
     max-width: 560px;
     margin: 40px auto;
-	  text-align: center;
+    text-align: center;
   }
-  
+
   .post-title-text {
-	  position: initial;
-	  text-align: center;
+    position: initial;
+    text-align: center;
   }
 
   .full-text-link {
     display: block;
     width: 160px;
     line-height: 40px;
-    margin: 60px auto 40px auto;
+    margin: 60px auto 40px;
     text-align: center;
     color: #666;
     border: 1px solid #666;
     border-radius: 20px;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: #222;
       border-color: #222;
     }
+  }
+}
+
+.end-panel {
+  margin: 0 auto 20px;
+  text-align: center;
+
+  #view-articles {
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 10px 15px;
+    color: #333;
   }
 }
 
@@ -100,6 +113,7 @@
 
     .post-title {
       top: 5%;
+
       img {
         max-width: 500px;
       }
@@ -111,6 +125,7 @@
   .post {
     .post-title {
       top: 5%;
+
       img {
         max-width: 400px;
       }
