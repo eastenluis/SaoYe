@@ -65,7 +65,7 @@ block content
 				#post-list
 					each post in data.authorPosts
 						+post(post, data.isS3Enabled)
-					if data.posts.length >= 2
+					if data.posts.length >= 10
 						.col-xs-12.button-container
 							button#load-more(type="button").btn 更多文章
 			else
@@ -74,4 +74,5 @@ block content
 
 block js
 	script(src="/js/jsrender.min.js")
+	script(src="/js/jquery-dateFormat.min.js")
 	script(src="/js/author-post-page.js")

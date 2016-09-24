@@ -12,7 +12,7 @@ mixin post(post, isS3Enabled)
 					if post.authors && post.authors.length
 						each auth, auth_i in post.authors
 							a(href='/author/' + auth.slug).label= auth.authorName
-						span.label=post._.publishedDate.format('YYYY.MM.DD')
+					span.label=post._.publishedDate.format('YYYY.MM.DD')
 					if post.categories && post.categories.length
 						each cat, cat_i in post.categories
 							a(href='/articles/' + cat.key).label=cat.name	
@@ -64,7 +64,7 @@ block content
 						each post in data.posts
 							+post(post, data.isS3Enabled)
 							
-					if data.posts.length >= 2
+					if data.posts.length >= 10
 						.col-xs-12.button-container
 							button#load-more(type="button").btn 更多文章
 				else
@@ -74,4 +74,5 @@ block content
 
 block js
 	script(src="/js/jsrender.min.js")
+	script(src="/js/jquery-dateFormat.min.js")
 	script(src="/js/articles-page.js")

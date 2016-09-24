@@ -52,7 +52,7 @@ exports = module.exports = function(req, res) {
 	// Load the posts
 	view.on('init', function(next) {
 		var q = keystone.list('Post')
-			.limit(10)
+			.limit(5)
 			.where('state', 'published')
 			.sort('-publishedDate')
 			.populate('authors categories');

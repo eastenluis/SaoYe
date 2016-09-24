@@ -4,8 +4,8 @@
     (function() {
         'use strict';
 
-        var articleSkip = 2;
-        var limit = 2;
+        var articleSkip = 10;
+        var limit = 10;
         var postTmpl = $.templates('#postTmpl');
 
         $('#load-more').on('click', function() {
@@ -23,7 +23,7 @@
                             slug: post.slug,
                             title: post.title,
                             brief: post.content.brief,
-                            date: post.publishedDate,
+                            date: post.publishedDate ? $.format.date(post.publishedDate, 'YYYY.MM.DD') : null,
                             authors: post.authors,
                             categories: post.categories
                         };

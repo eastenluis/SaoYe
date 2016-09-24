@@ -29,7 +29,6 @@ Post.add({
 
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 50 },
-        extract: { type: Types.Html, wysiwyg: true, height: 150 },
         intro: { type: Types.Html, wysiwyg: true, height: 150 },
         extended: { type: Types.Html, wysiwyg: true, height: 400 },
         editorNote: { type: Types.Html, wysiwyg: true, height: 150 }
