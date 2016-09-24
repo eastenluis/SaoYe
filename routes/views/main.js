@@ -51,7 +51,7 @@ exports = module.exports = function(req, res) {
 
 	// Load the posts
 	view.on('init', function(next) {
-		var q = keystone.list('Post')
+		var q = keystone.list('Post').model.find()
 			.limit(5)
 			.where('state', 'published')
 			.sort('-publishedDate')
