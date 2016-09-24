@@ -32,8 +32,8 @@ mixin post(post)
 block content
 	link(href="/styles/site/main.min.css", rel="stylesheet")
 	.container.container-main
-		if data.posts.results.length
-			each post in data.posts.results
+		if data.posts.length
+			each post in data.posts
 				+post(post)
 			.end-panel
 				a(href="/articles",id="view-articles") 查看所有文章
