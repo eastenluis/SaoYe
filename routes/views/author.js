@@ -19,31 +19,31 @@ exports = module.exports = function(req, res) {
 	};
 
 	// Load all categories
-	view.on('init', function(next) {
+	// view.on('init', function(next) {
 
-		keystone.list('Author').model.find().sort('authorName').exec(function(err, results) {
+	// 	keystone.list('Author').model.find().sort('order').exec(function(err, results) {
 
-			if (err || !results.length) {
-				return next(err);
-			}
+	// 		if (err || !results.length) {
+	// 			return next(err);
+	// 		}
 
-			locals.data.categories = results;
+	// 		locals.data.categories = results;
 
-			// Load the counts for each category
-			async.each(locals.data.categories, function(category, next) {
+	// 		// Load the counts for each category
+	// 		async.each(locals.data.categories, function(category, next) {
 
-				keystone.list('Post').model.count().where('authors').in([category.id]).exec(function(err, count) {
-					category.authorCount = count;
-					next(err);
-				});
+	// 			keystone.list('Post').model.count().where('authors').in([category.id]).exec(function(err, count) {
+	// 				category.authorCount = count;
+	// 				next(err);
+	// 			});
 
-			}, function(err) {
-				next(err);
-			});
+	// 		}, function(err) {
+	// 			next(err);
+	// 		});
 
-		});
+	// 	});
 
-	});
+	// });
 
 	// Load the current category filter
 	view.on('init', function(next) {
@@ -70,7 +70,7 @@ exports = module.exports = function(req, res) {
 				'state': 'published'
 				}
 			})
-			.sort('authorName')
+			.sort('order')
 			.populate('uploader');
 
 		// if (locals.data.category) {

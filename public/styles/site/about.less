@@ -2,5 +2,21 @@
 @import './variables.less';
 
 .container-about {
-    max-width: 640px;
+  max-width: 400px;
+
+  .about-intro {
+    width: 288px;
+    font-size: 1.2em;
+    margin: 0 auto;
+
+    .about-intro-brief {
+      > span {
+        display: inline-block;
+      }
+    }
+
+    .about-intro-extended {
+      margin-top: 1em;
+    }
+  }
 }

@@ -13,9 +13,19 @@ body {
   padding: @navbar-height-lg-screen 0 0;
 }
 
+@non-body-space: @navbar-height-lg-screen + 58px;
+#body {
+  min-height: calc(~"100vh - @{non-body-space}"  );
+}
+
 @media (max-width: @screen-sm-min) {
+  @non-body-space: @navbar-height-sm-screen + 58px;
   body {
     padding-top: @navbar-height-sm-screen;
+  }
+
+  #body {
+    min-height: calc(~"100vh - @{non-body-space}"  );
   }
 }
 
@@ -83,8 +93,15 @@ h6 {
   }
 
   .saoye-intro-text {
+    margin: 0 auto;
+    width: 220px;
+    text-align: left;
     font-size: .9em;
     color: #666;
+
+    > span {
+      display: inline-block;
+    }
   }
 }
 
@@ -285,7 +302,7 @@ h6 {
         color: #222;
         border-bottom: 2px solid #333;
         background: none;
-        
+
         &:hover {
           background: none;
         }
@@ -385,35 +402,58 @@ h6 {
 .modal-backdrop {
   z-index: 0;
 }
-
 /* Pagination Style */
 .pagination {
   .active {
-	a {
-	  color: #fff;
-	  background-color: #000;
-	  
-	}
+    a {
+      color: #fff;
+      background-color: #000;
+    }
   }
+
   li {
-	a {
-	  color: #666;
-	  
-	}
+    a {
+      color: #666;
+    }
   }
 }
-
-
 /* Footer Style */
 .footer {
   text-align: center;
   margin: 20px auto;
-  padding-bottom: 20px;
   color: #555;
-  
+  font-size: .8em;
 }
 // Used when no content is available.
 .text-muted {
   text-align: center;
 }
 
+.dot-divider {
+  display: -webkit-flex;
+  display: flex;
+  margin: 20px 0;
+  -webkit-align-items: center;
+  align-items: center;
+
+  .space {
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto;
+    height: 2px;
+    background-color: #333;
+  }
+
+  .circular-container {
+    -webkit-flex: 0 0 auto;
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 0 10px;
+
+    .circle {
+      width: 15px;
+      height: 15px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+  }
+}

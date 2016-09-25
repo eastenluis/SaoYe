@@ -10,6 +10,8 @@
   height: 100%;
   background: #ffffff;
   position: relative;
+  border-bottom: 1px solid #EEE;
+  margin-bottom: 15px;
 
   .post-background {
     position: relative;
@@ -92,14 +94,23 @@
 }
 
 .end-panel {
-  margin: 0 auto 20px;
   text-align: center;
 
   #view-articles {
-    font-size: 1.5em;
     display: inline-block;
-    padding: 10px 15px;
-    color: #333;
+    text-align: center;
+    color: #666;
+    padding: 5px;
+
+    &:hover,
+    &:active {
+      color: #222;
+      border-color: #222;
+    }
+
+    > * {
+      vertical-align: middle;
+    }
   }
 }
 
