@@ -2,7 +2,6 @@
 @import './variables.less';
 
 .navbar-default {
-
   .navbar-header {
     & :hover,
     :active,
@@ -147,7 +146,6 @@
       }
 
       .authors-container {
-
         header {
           font-weight: bold;
           margin-top: 10px;
@@ -217,10 +215,16 @@
     }
 
     .main-col {
-      .post-header {
-        width: 100vw;
-        margin-left: -15px;
-        margin-right: -15px;
+      article {
+        .post-header {
+          width: 100vw;
+          margin-left: -15px;
+          margin-right: -15px;
+
+          .post-title {
+            top: 5%;
+          }
+        }
       }
     }
 
@@ -229,20 +233,6 @@
 
       >:first-child {
         border-top: 1px solid #333;
-      }
-    }
-  }
-}
-
-@media (max-width: @screen-xs-min) {
-  .container-post {
-    .main-col {
-      .post-header {
-        .post-title {
-          img {
-            max-width: 300px;
-          }
-        }
       }
     }
   }

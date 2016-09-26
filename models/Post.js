@@ -26,7 +26,6 @@ Post.add({
 	titleImage: titleImageObj,
     postImage: postImageObj, 
 	postThumbnailImage: postThumbnailImageObj,
-
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 50 },
         intro: { type: Types.Html, wysiwyg: true, height: 150 },

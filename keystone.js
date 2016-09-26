@@ -54,6 +54,9 @@ keystone.set('nav', {
 	'后台用户': 'users'
 });
 
+// WYSIWYG editor settings
+keystone.set('wysiwyg images', true);
+
 // Add a new resource to the root file
 keystone.set('static', ['public', 'files']);
 
