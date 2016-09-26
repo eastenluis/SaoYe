@@ -40,6 +40,23 @@ TypesUtils.createLocalFileObj = function(path) {
     };
 };
 
+TypesUtils.createLocalMultipleFileObj = function(path) {
+    return {
+        type: Types.LocalFiles,
+        dest: FILE_STORAGE_PATH + '/files/' + path + '/',
+        prefix: '/' + path + '/',
+		allowedTypes: [
+			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
+		],
+        filename: function(item, file) {
+            return item.id + '-' + file.name;
+        },
+		format: function(item, file) {
+			return '<img src= "/files/' + path + file.filename + '" style="max-width: 750px">'
+		}
+    };
+};
+
 TypesUtils.createFileTypeObj = function(path) {
     return TypesUtils.isS3Enabled() ? 
     TypesUtils.createS3FileObj(path) :
