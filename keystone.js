@@ -57,6 +57,13 @@ keystone.set('nav', {
 // WYSIWYG editor settings
 keystone.set('wysiwyg images', true);
 
+// Google analytics
+if (process.env.GA_PROPERTY && process.env.GA_DOMAIN) {
+	keystone.set('ga property', process.env.GA_PROPERTY);
+	keystone.set('ga domain', process.env.GA_DOMAIN);
+}
+
+
 // Add a new resource to the root file
 keystone.set('static', ['public', 'files']);
 
