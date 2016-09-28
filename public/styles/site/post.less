@@ -43,6 +43,10 @@
         flex: 1 1 auto;
         padding: 10px;
 
+        @media (max-width: @screen-sm-min) {
+          padding-top: 0 10px;
+        }
+
         a {
           color: #333;
         }
@@ -231,9 +235,9 @@
     .side-col {
       padding-top: 20px;
 
-      >:first-child {
-        border-top: 1px solid #333;
-      }
+      // >:first-child {
+      //   border-top: 1px solid #333;
+      // }
     }
   }
 }

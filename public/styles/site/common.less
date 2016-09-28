@@ -13,13 +13,13 @@ body {
   padding: @navbar-height-lg-screen 0 0;
 }
 
-@non-body-space: @navbar-height-lg-screen + 58px;
+@non-body-space: @navbar-height-lg-screen + 76px;
 #body {
   min-height: calc(~"100vh - @{non-body-space}"  );
 }
 
 @media (max-width: @screen-sm-min) {
-  @non-body-space: @navbar-height-sm-screen + 58px;
+  @non-body-space: @navbar-height-sm-screen + 76px;
   body {
     padding-top: @navbar-height-sm-screen;
   }
