@@ -3,7 +3,7 @@
 extends ../layouts/default
 
 mixin post(post, isS3Enabled)
-	.post.col-md-6
+	.post.col-sm-6
 		if (post.postThumbnailImage.exists)
 			- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
 		else
@@ -65,7 +65,7 @@ block content
 				#post-list
 					each post in data.authorPosts
 						+post(post, data.isS3Enabled)
-					if data.posts.length >= 10
+					if data.authorPosts.length >= 10
 						.col-xs-12.button-container
 							button#load-more(type="button").btn 更多文章
 			else
