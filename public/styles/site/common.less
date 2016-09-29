@@ -12,20 +12,21 @@ body {
   letter-spacing: .065em;
   padding: @navbar-height-lg-screen 0 0;
 }
-
 @non-body-space: @navbar-height-lg-screen + 76px;
+
 #body {
-  min-height: calc(~"100vh - @{non-body-space}"  );
+  min-height: calc(~"100vh - @{non-body-space}" );
 }
 
-@media (max-width: @screen-sm-min) {
+@media (max-width: @screen-xs-max) {
   @non-body-space: @navbar-height-sm-screen + 76px;
+
   body {
     padding-top: @navbar-height-sm-screen;
   }
 
   #body {
-    min-height: calc(~"100vh - @{non-body-space}"  );
+    min-height: calc(~"100vh - @{non-body-space}" );
   }
 }
 
@@ -59,7 +60,7 @@ h6 {
   display: none;
 }
 
-@media (max-width: @screen-sm-min) {
+@media (max-width: @screen-xs-max) {
   .mobile-only {
     display: block;
   }
@@ -75,40 +76,42 @@ h6 {
   }
 }
 
+.saoye-dropdown {
+  .display-flex();
+  .flex-direction(column);
+
+  /* Menu style */
+  .saoye-intro {
+    .flex(1, 1, auto);
+    text-align: center;
+
+    .saoye-logo {
+      padding-bottom: 1.5em;
+    }
+
+    .saoye-intro-text {
+      margin: 0 auto;
+      width: 220px;
+      text-align: left;
+      font-size: .9em;
+      color: #666;
+
+      > span {
+        display: inline-block;
+      }
+    }
+  }
+
+  .menu-list {
+    .flex(0, 0, auto);
+  }
+}
+
 #container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 0;
   padding-right: 0;
-}
-/* Menu style */
-.saoye-intro {
-  position: absolute;
-  width: 100%;
-  top: 5%;
-  text-align: center;
-
-  .saoye-logo {
-    padding-bottom: 1.5em;
-  }
-
-  .saoye-intro-text {
-    margin: 0 auto;
-    width: 220px;
-    text-align: left;
-    font-size: .9em;
-    color: #666;
-
-    > span {
-      display: inline-block;
-    }
-  }
-}
-
-.menu-list {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
 }
 /* Post styles on main page */
 #home-slider {
@@ -272,8 +275,7 @@ h6 {
   margin: 0 auto;
 
   .logo-panel {
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
+    .flex(1, 1, auto);
 
     .logo-wrapper {
       text-align: center;
@@ -332,17 +334,21 @@ h6 {
 
 .navbar-mobile {
   display: none;
-}
 
-@media (max-width: @screen-sm-min) {
-  .navbar-mobile {
+  @media (max-width: @screen-xs-max) {
     display: block;
   }
+}
 
-  .navbar-desktop {
+.navbar-desktop {
+  display: block;
+
+  @media (max-width: @screen-xs-max) {
     display: none;
   }
+}
 
+@media (max-width: @screen-xs-max) {
   .navbar-default {
     background: none;
     padding-top: 0;
@@ -430,22 +436,19 @@ h6 {
 }
 
 .dot-divider {
-  display: -webkit-flex;
-  display: flex;
+  .display-flex;
   margin: 20px 0;
   -webkit-align-items: center;
   align-items: center;
 
   .space {
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
+    .flex(1, 1, auto);
     height: 2px;
     background-color: #333;
   }
 
   .circular-container {
-    -webkit-flex: 0 0 auto;
-    flex: 0 0 auto;
+    .flex(0, 0, auto);
     text-align: center;
     padding: 0 10px;
 

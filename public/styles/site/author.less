@@ -10,10 +10,9 @@
     margin: 10px auto;
     min-height: 140px;
     overflow: auto;
-    display: -webkit-flex;
-    display: flex;
+    .display-flex;
 
-    @media (max-width: @screen-sm-min) {
+    @media (max-width: @screen-xs-max) {
       min-height: auto;
       margin-bottom: 15px;
     }
@@ -23,8 +22,7 @@
     }
 
     .author-introduction {
-      -webkit-flex: 1 1 auto;
-      flex: 1 1 auto;
+      .flex(1, 1, auto);
       padding-left: 1em;
       padding-top: .2em;
 
@@ -40,14 +38,13 @@
         margin-top: 0.5em;
       }
 
-      @media (max-width: @screen-sm-min) {
+      @media (max-width: @screen-xs-max) {
         padding-top: 0;
       }
     }
 
     .author-image {
-      -webkit-flex: 0 0 auto;
-      flex: 0 0 auto;
+      .flex(0, 0, auto);
 
       img {
         width: 6em;
