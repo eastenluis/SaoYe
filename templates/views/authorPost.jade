@@ -49,7 +49,7 @@ block content
 					if data.author.authorImage.exists
 						- var authorImgUrl = data.author.authorImage.url || ("/author/images/" + data.author.authorImage.filename);
 					else
-						- var authorImgUrl = "";
+						- var authorImgUrl = '/images/saoye_logo_white.png';
 				
 					img(src=authorImgUrl)
 				.author-name
@@ -70,7 +70,7 @@ block content
 							button#load-more(type="button").btn 更多文章
 			else
 				.col-xs-12
-					p(style="text-align: center;") 我还在寻找灵感。
+					p.text-muted 我还在寻找灵感。
 
 block js
 	script(src="/js/jsrender.min.js")

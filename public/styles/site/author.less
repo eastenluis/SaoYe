@@ -8,10 +8,15 @@
   .author {
     max-width: 500px;
     margin: 10px auto;
-    min-height: 150px;
+    min-height: 140px;
     overflow: auto;
     display: -webkit-flex;
     display: flex;
+
+    @media (max-width: @screen-sm-min) {
+      min-height: auto;
+      margin-bottom: 15px;
+    }
 
     a {
       color: #333;
@@ -31,7 +36,7 @@
       .author-brief {
         font-size: .9em;
         color: #111;
-        max-width: 15em;
+        max-width: 17em;
         margin-top: 0.5em;
       }
 
