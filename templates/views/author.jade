@@ -30,8 +30,8 @@ block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")
 	.container.container-author
 		.row.author-list
-			if data.authors.results.length
-				each author in data.authors.results
+			if data.authors.length
+				each author in data.authors
 					+author(author, data.isS3Enabled)
 
 				if data.authors.totalPages > 1

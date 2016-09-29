@@ -62,14 +62,8 @@ exports = module.exports = function(req, res) {
 	// Load the authors
 	view.on('init', function(next) {
 
-		var q = keystone.list('Author').paginate({
-			page: req.query.page || 1,
-			perPage: 10,
-			maxPages: 10,
-			filters: {
-				'state': 'published'
-				}
-			})
+		var q = keystone.list('Author').model.find()
+			.where('state', 'published')
 			.sort('order')
 			.populate('uploader');
 
