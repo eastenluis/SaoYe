@@ -25,15 +25,17 @@ mixin post(post)
 	.post
 		+postImage(post)
 		.post-brief
-			!=post.content.extract
+			!=post.content.intro
 		a(href='/articles/post/' + post.slug).full-text-link 阅读全文
-		hr
 
 block content
 	link(href="/styles/site/main.min.css", rel="stylesheet")
 	.container.container-main
-		if data.posts.results.length
-			each post in data.posts.results
+		if data.posts.length
+			each post in data.posts
 				+post(post)
+			.end-panel
+				a(href="/articles",id="view-articles") 
+					span 查看所有文章
 		else
 			h3.text-muted 敬请期待最新文章！

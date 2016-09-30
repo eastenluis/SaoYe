@@ -41,10 +41,9 @@ exports = module.exports = function(req, res) {
 
 		var q = keystone.list('Post').model.find()
 			.where('state', 'published')
-			.where('authors')
+			.where('authors').in([locals.data.author])
 			.populate('categories')
-			.limit(10)
-			.in([locals.data.author]);
+			.limit(10);
 		
 		q.exec(function(err, results) {
 			locals.data.authorPosts = results;

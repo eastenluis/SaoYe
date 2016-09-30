@@ -2,7 +2,6 @@
 @import './variables.less';
 
 .navbar-default {
-
   .navbar-header {
     & :hover,
     :active,
@@ -43,6 +42,10 @@
         -webkit-flex: 1 1 auto;
         flex: 1 1 auto;
         padding: 10px;
+
+        @media (max-width: @screen-sm-min) {
+          padding-top: 0 10px;
+        }
 
         a {
           color: #333;
@@ -147,7 +150,6 @@
       }
 
       .authors-container {
-
         header {
           font-weight: bold;
           margin-top: 10px;
@@ -210,35 +212,6 @@
   }
 }
 
-.dot-divider {
-  display: -webkit-flex;
-  display: flex;
-  margin: 20px 0;
-  -webkit-align-items: center;
-  align-items: center;
-
-  .space {
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto;
-    height: 2px;
-    background-color: #333;
-  }
-
-  .circular-container {
-    -webkit-flex: 0 0 auto;
-    flex: 0 0 auto;
-    text-align: center;
-    padding: 0 10px;
-
-    .circle {
-      width: 15px;
-      height: 15px;
-      background-color: #333;
-      border-radius: 50%;
-    }
-  }
-}
-
 @media (max-width: @screen-sm-min) {
   .container-post {
     .transparent-transition-cover {
@@ -246,33 +219,25 @@
     }
 
     .main-col {
-      .post-header {
-        width: 100vw;
-        margin-left: -15px;
-        margin-right: -15px;
+      article {
+        .post-header {
+          width: 100vw;
+          margin-left: -15px;
+          margin-right: -15px;
+
+          .post-title {
+            top: 5%;
+          }
+        }
       }
     }
 
     .side-col {
       padding-top: 20px;
 
-      >:first-child {
-        border-top: 1px solid #333;
-      }
-    }
-  }
-}
-
-@media (max-width: @screen-xs-min) {
-  .container-post {
-    .main-col {
-      .post-header {
-        .post-title {
-          img {
-            max-width: 300px;
-          }
-        }
-      }
+      // >:first-child {
+      //   border-top: 1px solid #333;
+      // }
     }
   }
 }

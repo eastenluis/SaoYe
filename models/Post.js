@@ -17,6 +17,7 @@ var Post = new keystone.List('Post', {
 var titleImageObj = TypesUtils.createFileTypeObj('post/images/');
 var postImageObj = TypesUtils.createFileTypeObj('post/images/');
 var postThumbnailImageObj = TypesUtils.createFileTypeObj('post/images/');
+var contentImages = TypesUtils.createLocalMultipleFileObj('post/images/');
 
 Post.add({
     title: { type: String, required: true },
@@ -26,10 +27,9 @@ Post.add({
 	titleImage: titleImageObj,
     postImage: postImageObj, 
 	postThumbnailImage: postThumbnailImageObj,
-
+    contentImages: contentImages,
     content: {
         brief: { type: Types.Html, wysiwyg: true, height: 50 },
-        extract: { type: Types.Html, wysiwyg: true, height: 150 },
         intro: { type: Types.Html, wysiwyg: true, height: 150 },
         extended: { type: Types.Html, wysiwyg: true, height: 400 },
         editorNote: { type: Types.Html, wysiwyg: true, height: 150 }

@@ -40,7 +40,9 @@ keystone.set('locals', {
 	_: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
-	editable: keystone.content.editable
+	editable: keystone.content.editable,
+	ga_property: keystone.get('ga property'),
+	ga_domain: keystone.get('ga domain')
 });
 
 // Load your project's Routes
@@ -53,6 +55,16 @@ keystone.set('nav', {
 	'作者': 'authors',
 	'后台用户': 'users'
 });
+
+// WYSIWYG editor settings
+keystone.set('wysiwyg images', true);
+
+// Google analytics
+if (process.env.GA_PROPERTY && process.env.GA_DOMAIN) {
+	keystone.set('ga property', process.env.GA_PROPERTY);
+	keystone.set('ga domain', process.env.GA_DOMAIN);
+}
+
 
 // Add a new resource to the root file
 keystone.set('static', ['public', 'files']);

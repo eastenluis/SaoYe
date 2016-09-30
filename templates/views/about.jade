@@ -1,15 +1,20 @@
 extends ../layouts/default
-
-block intro
-	.container
-		h2.page-heading
-			.page-heading-name-ch 关于
-			.page-heading-name-en about
+include ../layouts/dot-divider
 
 block content
 	link(href="/styles/site/about.min.css", rel="stylesheet")
-	.container: .row
-		.col-md-9.col-sm-7
-			.row
-				.col-md-6
-					h4 这里是关于骚也的详细介绍!
+	.container.container-about: .row
+		.col-sm-5
+			.about-header
+				.saoye-logo
+					img(src="/images/saoye_logo_white.svg")
+				.saoye-header 骚也
+		.col-sm-7						
+			.about-intro
+				.about-intro-brief
+					span We are sorry about&nbsp;
+					span not feeling any sorry at all&nbsp;  
+					span for our reader-unfriendliness.
+				.about-intro-extended
+					span 一群以取悦自己为写作源动力、自由而无用的青年人聚集在一起，就容易隔岸观火地捉蝴蝶。永远年轻！永远绕开“常识”。笔耕不缀！Excited！
+		

@@ -37,5 +37,5 @@ Author.schema.virtual('content.full').get(function() {
 
 Author.relationship({ path: 'posts', ref: 'Post', refPath: 'authors'});
 
-
+Author.defaultColumns = 'authorName, state, order';
 Author.register();

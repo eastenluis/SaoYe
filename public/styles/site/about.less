@@ -1,4 +1,62 @@
 @import '../bootstrap/variables.less';
 @import './variables.less';
 
+.container-about {
+  max-width: 550px;
+  padding-top: 20vh;
 
+  .about-header {
+    margin: 20px auto;
+    text-align: center;
+
+    .saoye-logo {
+      img {
+        width: 120px;
+        height: 120px;
+
+        @media (max-width: @screen-sm-min) {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+
+    .saoye-header {
+      margin-top: 10px;
+      font-size: 2em;
+    }
+  }
+
+  .about-intro {
+    width: 15em;
+    font-size: 1em;
+
+    .about-intro-brief {
+      font-style: italic;
+
+      > span {
+        display: inline-block;
+      }
+    }
+
+    .about-intro-extended {
+      margin-top: 1.5em;
+    }
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .container-about {
+    padding-top: 0;
+
+    .about-header {
+      margin: 20px auto;
+    }
+
+    .about-intro {
+      padding-bottom: 20px;
+      margin: 0 auto;
+      font-size: 1em;
+    }
+  }
+}
