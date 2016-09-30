@@ -3,7 +3,7 @@
 extends ../layouts/default
 
 mixin post(post, isS3Enabled)
-	.post.col-md-6
+	.post.col-sm-6
 		if (post.postThumbnailImage.exists)
 			- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
 		else
@@ -49,7 +49,7 @@ block content
 					if data.author.authorImage.exists
 						- var authorImgUrl = data.author.authorImage.url || ("/author/images/" + data.author.authorImage.filename);
 					else
-						- var authorImgUrl = "";
+						- var authorImgUrl = '/images/saoye_logo_white.png';
 				
 					img(src=authorImgUrl)
 				.author-name
@@ -65,12 +65,12 @@ block content
 				#post-list
 					each post in data.authorPosts
 						+post(post, data.isS3Enabled)
-					if data.posts.length >= 10
+					if data.authorPosts.length >= 10
 						.col-xs-12.button-container
 							button#load-more(type="button").btn 更多文章
 			else
 				.col-xs-12
-					p(style="text-align: center;") 我还在寻找灵感。
+					p.text-muted 我还在寻找灵感。
 
 block js
 	script(src="/js/jsrender.min.js")

@@ -58,7 +58,7 @@ block content
 		.row.articles
 			if filters.category && !data.category
 				.row: .col-xs-12
-					h4.text-muted Invalid Category.
+					p.text-muted 找不到此标签。
 			else
 				if data.posts.length > 0
 					#post-list
@@ -70,7 +70,7 @@ block content
 							button#load-more(type="button").btn 更多文章
 				else
 					.row: .col-xs-12
-							h4.text-muted 我们抓蝴蝶去了。
+							p.text-muted 我们抓蝴蝶去了。
 
 block js
 	script(src="/js/jsrender.min.js")

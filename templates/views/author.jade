@@ -29,24 +29,11 @@ block intro
 block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")
 	.container.container-author
-		.row.author-list
-			if data.authors.results.length
-				each author in data.authors.results
-					+author(author, data.isS3Enabled)
-
-				if data.authors.totalPages > 1
-					.col-xs-12.pagination-container
-						ul.pagination
-							if data.authors.previous
-								li: a(href='?page=' + data.authors.previous): span.glyphicon.glyphicon-chevron-left
-							else
-								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
-							each p, i in data.authors.pages
-								li(class=data.authors.currentPage == p ? 'active' : null)
-									a(href='?page=' + (p == '...' ? (i ? data.authors.totalPages : 1) : p ))= p
-							if data.authors.next
-								li: a(href='?page=' + data.authors.next): span.glyphicon.glyphicon-chevron-right
-							else
-								li.disabled: a(href='?page=' + data.authors.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+		.author-list
+			if data.authorRows.length
+				each row in data.authorRows
+					.row
+						each author in row
+							+author(author, data.isS3Enabled)
 			else
 				p.text-muted 去玩躲猫猫咯！
