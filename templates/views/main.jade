@@ -6,26 +6,28 @@ mixin postImage(post)
 			if (post.titleImage.exists)
 				.post-title
 					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
-			.post-info
-				if post.authors && post.authors.length
-					each auth, auth_i in post.authors
-						a(href='/author/' + auth.slug).label= auth.authorName
-					span.label=post._.publishedDate.format('YYYY.MM.DD')
-				if post.categories && post.categories.length
-					each cat, cat_i in post.categories
-						a(href='/articles/' + cat.key).label=cat.name
 	else 
 		.post-title-text
 			h1(class="post-title-text")
 				!=post.title
-			h5(class="post-brief") 
-				!=post.content.brief	
+			
+
 
 mixin post(post)
 	.post
 		+postImage(post)
-		.post-brief
-			!=post.content.intro
+		if post.content.intro
+			.post-brief
+				!=post.content.intro
+		.post-info
+			if post.authors && post.authors.length
+				each auth, auth_i in post.authors
+					a(href='/author/' + auth.slug).label= auth.authorName
+			if post.publishedDate
+				span.label=post._.publishedDate.format('YYYY.MM.DD')
+			if post.categories && post.categories.length
+				each cat, cat_i in post.categories
+					a(href='/articles/' + cat.key).label=cat.name
 		a(href='/articles/post/' + post.slug).full-text-link 阅读全文
 
 block content
