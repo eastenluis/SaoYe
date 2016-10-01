@@ -5,6 +5,14 @@
   max-width: 810px;
   padding-bottom: 20px;
 
+  .author-list {
+    .row {
+      .col-sm-4 {
+        padding: 7px;
+      }
+    }
+  }
+
   .author {
     margin: 15px auto;
     overflow: auto;
@@ -12,6 +20,11 @@
     max-width: 270px;
     padding: 15px;
     border: 1px solid #EEE;
+
+    @media (max-width: @screen-xs-max) {
+      border: 0 none;
+      margin-top: 0;
+    }
 
     a {
       color: #333;
