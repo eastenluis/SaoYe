@@ -6,7 +6,7 @@ html
 	//- HTML HEADER
 	head
 		meta(charset="utf-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
 		title= title || '骚也'
@@ -40,7 +40,7 @@ html
 			div.container
 				// Full screen modal for every page
 				.navbar-header.navbar-mobile
-					img(src="/images/saoye_logo_black.svg" class="navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal")
+					a(class="navbar-toggle collapsed", data-toggle="modal", data-target="#menuModal" href="#"): img(src="/images/saoye_logo_black.svg")
 
 				// Navigation menu in desktop mode
 				.navbar-desktop
@@ -56,7 +56,7 @@ html
 
 						.modal-content(style="color:#fff;")
 							.modal-header(style="border:0;")
-								button(type="button", class="btn close", data-dismiss="modal", aria-hidden="true")
+								a(class="close", data-dismiss="modal", aria-hidden="true", href="#")
 									span(class="glyphicon glyphicon-remove")
 								h4.model-title.text-center
 									span.sr-only main navigation
@@ -66,11 +66,6 @@ html
 									.saoye-logo
 										img(src="/images/saoye_logo_pink.svg" style="width:6em;")
 										h3(style="color:#000;") 骚也
-									.saoye-intro-text 
-										span We are sorry about 
-										span not feeling any sorry at all 
-										span for our reader-unfriendliness.	
-										
 								.menu-list
 									.text-right
 										// Get options from navLinks from middleware.js

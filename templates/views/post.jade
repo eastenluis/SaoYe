@@ -11,7 +11,7 @@ block authorInfo
 					img(src=authorImageUrl) 
 				.author-info
 					a(href='/author/' + auth.slug).name= auth.authorName
-					.brief!=auth.introduction.brief||'此处应有一段简短的自述。'
+					.brief!=auth.introduction.brief
 
 block content
 	link(href="/styles/site/post.min.css", rel="stylesheet")
@@ -51,8 +51,11 @@ block content
 						block authorInfo
 					.post-editor-note
 						header 编辑手札
-						.edtor-note!=data.post.content.editorNote||'<p>一段来自己编辑们的评论。</p><p>可能有多行。</p>'
+						.edtor-note!=data.post.content.editorNote
 					.post-copyright 
+						读者君，如果你是在憋不住的话，请发邮件至
+						a(href="mailto:reader@saoye.me") readers@saoye.me
+						，看心情回。
 						
 			.fill-space.hidden-md.hidden-lg
 		section.col-md-4.side-col 
