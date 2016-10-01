@@ -79,7 +79,6 @@ h6 {
 .saoye-dropdown {
   .display-flex();
   .flex-direction(column);
-
   /* Menu style */
   .saoye-intro {
     .flex(1, 1, auto);
@@ -298,6 +297,10 @@ h6 {
     li {
       a {
         background: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
 
       &.active a {
