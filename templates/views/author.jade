@@ -3,7 +3,7 @@
 extends ../layouts/default
 
 mixin author(author, isS3Enabled)
-	.author.col-sm-6
+	.author
 		if author.authorImage.exists
 			- var authorImgUrl = isS3Enabled ? author.authorImage.url : '/author/images/' + author.authorImage.filename;
 		else
@@ -29,11 +29,11 @@ block intro
 block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")
 	.container.container-author
-		.author-list
-			if data.authorRows.length
-				each row in data.authorRows
-					.row
-						each author in row
+		.author-list: .row
+			if data.authorCols.length
+				each col in data.authorCols
+					.col-sm-4
+						each author in col
 							+author(author, data.isS3Enabled)
 			else
 				p.text-muted 去玩躲猫猫咯！
