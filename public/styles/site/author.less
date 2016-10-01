@@ -8,17 +8,21 @@
   .author-list {
     .row {
       .col-sm-4 {
-        padding: 7px;
+        padding: 6px;
+
+        @media (max-width: @screen-xs-max) {
+          padding: 0;
+        }
       }
     }
   }
 
   .author {
-    margin: 15px auto;
+    margin: 12px auto;
     overflow: auto;
     text-align: center;
     max-width: 270px;
-    padding: 15px;
+    padding: 12px;
     border: 1px solid #EEE;
 
     @media (max-width: @screen-xs-max) {
@@ -36,7 +40,7 @@
       .author-name {
         font-size: 1.5em;
         line-height: 1;
-        margin-bottom: .5em;
+        margin-bottom: .4em;
       }
 
       .author-brief {
