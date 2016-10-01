@@ -34,13 +34,13 @@ block content
 										!=data.post.title
 									h5(class="post-brief") 
 										!=data.post.content.brief
-							.post-info
-								each auth, auth_i in data.post.authors
-									a(href='/author/' + auth.slug).label= auth.authorName
-								span.label=data.post._.publishedDate.format('YYYY.MM.DD')
-								if data.post.categories && data.post.categories.length
-									each cat, cat_i in data.post.categories
-										a(href='/articles/' + cat.key).label=cat.name
+					.post-info
+						each auth, auth_i in data.post.authors
+							a(href='/author/' + auth.slug).label= auth.authorName
+						span.label=data.post._.publishedDate.format('YYYY.MM.DD')
+						if data.post.categories && data.post.categories.length
+							each cat, cat_i in data.post.categories
+								a(href='/articles/' + cat.key).label=cat.name
 					blockquote.post-intro
 						div!=data.post.content.intro || '<p>一段对文章的导语</p>'
 					.post-body
@@ -53,9 +53,9 @@ block content
 						header 编辑手札
 						.edtor-note!=data.post.content.editorNote
 					.post-copyright 
-						读者君，如果你是在憋不住的话，请发邮件至
+						| 读者君，如果你实在憋不住的话，请发邮件至
 						a(href="mailto:reader@saoye.me") readers@saoye.me
-						，看心情回。
+						| ，看心情回。
 						
 			.fill-space.hidden-md.hidden-lg
 		section.col-md-4.side-col 
