@@ -3,19 +3,20 @@
 extends ../layouts/default
 
 mixin author(author, isS3Enabled)
-	.author
-		if author.authorImage.exists
-			- var authorImgUrl = isS3Enabled ? author.authorImage.url : '/author/images/' + author.authorImage.filename;
-		else
-			- var authorImgUrl = '/images/saoye_logo_white.png';
-		.author-image
-			img(src=authorImgUrl)
-		.author-introduction
-			div(class="author-name")
-				a(href='/author/' + author.slug) 
-					!=author.authorName
-			div(class="author-brief")
-				!=author.introduction.brief
+	.col-sm-4
+		.author
+			if author.authorImage.exists
+				- var authorImgUrl = isS3Enabled ? author.authorImage.url : '/author/images/' + author.authorImage.filename;
+			else
+				- var authorImgUrl = '/images/saoye_logo_white.png';
+			.author-image
+				img(src=authorImgUrl)
+			.author-introduction
+				div(class="author-name")
+					a(href='/author/' + author.slug) 
+						!=author.authorName
+				div(class="author-brief")
+					!=author.introduction.brief
 
 block intro
 	.container
@@ -30,10 +31,10 @@ block content
 	link(href="/styles/site/author.min.css", rel="stylesheet")
 	.container.container-author
 		.author-list: .row
-			if data.authorCols.length
-				each col in data.authorCols
-					.col-sm-4
-						each author in col
+			if data.authorRows.length
+				each row in data.authorRows
+					.row
+						each author in row
 							+author(author, data.isS3Enabled)
 			else
 				p.text-muted 去玩躲猫猫咯！

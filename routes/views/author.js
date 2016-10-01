@@ -14,7 +14,7 @@ exports = module.exports = function(req, res) {
 	};
 	locals.data = {
 		authors: [],
-		authorCols: [],
+		authorRows: [],
 		categories: [],
 		isS3Enabled: TypesUtils.isS3Enabled()
 	};
@@ -43,10 +43,12 @@ exports = module.exports = function(req, res) {
 
 		q.exec(function(err, results) {
 			locals.data.authors = results;
-			locals.data.authorCols = [[], [], []];
+			locals.data.authorRows = [];
 			results.forEach(function(author, index) {
-				var col = index % 3;
-				locals.data.authorCols[col].push(author);
+				var row = Math.floor(index / 3);
+				if (!locals.data.authorRows[row])
+					locals.data.authorRows.push([]);
+				locals.data.authorRows[row].push(author);
 			});
 			next(err);
 		});
