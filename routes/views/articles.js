@@ -64,7 +64,7 @@ exports = module.exports = function(req, res) {
 		
 		var q = keystone.list('Post').model.find()
 			.where('state', 'published')
-			.limit(2)
+			.limit(10)
 			.sort('-publishedDate')
 			.populate('uploader categories authors');
 		
