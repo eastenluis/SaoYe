@@ -1,0 +1,43 @@
+extends ../layouts/default
+
+mixin postImage(post)
+	if (post.postImage.exists)
+		div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
+			if (post.titleImage.exists)
+				.post-title
+					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
+	else
+		.post-title-text
+			h1(class="post-title-text")
+				!=post.title
+
+
+
+mixin post(post)
+	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
+		+postImage(post)
+		if post.content.intro
+			.post-brief
+				!=post.content.intro
+		.post-info
+			if post.authors && post.authors.length
+				each auth, auth_i in post.authors
+					a(href='/author/' + auth.slug).label= auth.authorName
+			if post.publishedDate
+				span.label=post._.publishedDate.format('YYYY.MM.DD')
+			if post.categories && post.categories.length
+				each cat, cat_i in post.categories
+					a(href='/articles/' + cat.key).label=cat.name
+		a(href='/articles/post/' + post.slug).full-text-link 阅读全文
+
+block content
+	link(href="/styles/site/main.min.css", rel="stylesheet")
+	.container.container-main
+		if data.posts.length
+			each post in data.posts
+				+post(post)
+			.end-panel
+				a(href="/articles",id="view-articles")
+					span 查看所有文章
+		else
+			h3.text-muted 今晚9点见!
