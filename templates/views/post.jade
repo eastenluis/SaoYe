@@ -6,7 +6,7 @@ block authorInfo
 	if data.post.authors && data.post.authors.length
 		each auth in data.post.authors
 			.author
-				- var authorImageUrl = auth.authorImage.exists ? auth.authorImage.url || ('/authors/images/' + auth.authorImage.filename) : '';
+				- var authorImageUrl = auth.authorImage.url || ('/authors/images/' + auth.authorImage.filename);
 				.avatar
 					img(src=authorImageUrl) 
 				.author-info
