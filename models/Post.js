@@ -36,6 +36,7 @@ Post.add({
     },
     categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 	authors: { type: Types.Relationship, ref: 'Author', many: true },
+    promoteOrder: {type: Types.Number }
 });
 
 Post.schema.virtual('content.full').get(function() {
