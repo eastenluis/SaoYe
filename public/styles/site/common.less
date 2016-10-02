@@ -77,12 +77,11 @@ h6 {
 }
 
 .saoye-dropdown {
-  .display-flex();
-  .flex-direction(column);
+
   /* Menu style */
   .saoye-intro {
-    .flex(1, 1, auto);
     text-align: center;
+    min-height: calc(~"100vh - 306px");
 
     .saoye-logo {
       padding-bottom: 1.5em;
@@ -102,7 +101,6 @@ h6 {
   }
 
   .menu-list {
-    .flex(0, 0, auto);
   }
 }
 
@@ -380,12 +378,7 @@ h6 {
   }
 
   .modal-body {
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    bottom: 4%;
-    left: 5%;
-    padding: 0;
+   
   }
 
   .fullscreen {
