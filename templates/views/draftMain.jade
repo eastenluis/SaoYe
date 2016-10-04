@@ -6,15 +6,15 @@ mixin postImage(post)
 			if (post.titleImage.exists)
 				.post-title
 					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
-	else 
+	else
 		.post-title-text
 			h1(class="post-title-text")
 				!=post.title
-			
+
 
 
 mixin post(post)
-	.post
+	.post(data-ks-editable=editable(user, { list: 'Post', id: post.id }))
 		+postImage(post)
 		if post.content.intro
 			.post-brief
@@ -37,7 +37,7 @@ block content
 			each post in data.posts
 				+post(post)
 			.end-panel
-				a(href="/articles",id="view-articles") 
+				a(href="/articles",id="view-articles")
 					span 查看所有文章
 		else
-			p.text-muted 我们抓蝴蝶去了，还没回来。<br>今晚9点见。
+			h3.text-muted 今晚9点见!

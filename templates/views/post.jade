@@ -34,13 +34,13 @@ block content
 										!=data.post.title
 									h5(class="post-brief") 
 										!=data.post.content.brief
-							.post-info
-								each auth, auth_i in data.post.authors
-									a(href='/author/' + auth.slug).label= auth.authorName
-								span.label=data.post._.publishedDate.format('YYYY.MM.DD')
-								if data.post.categories && data.post.categories.length
-									each cat, cat_i in data.post.categories
-										a(href='/articles/' + cat.key).label=cat.name
+					.post-info
+						each auth, auth_i in data.post.authors
+							a(href='/author/' + auth.slug).label= auth.authorName
+						span.label=data.post._.publishedDate.format('YYYY.MM.DD')
+						if data.post.categories && data.post.categories.length
+							each cat, cat_i in data.post.categories
+								a(href='/articles/' + cat.key).label=cat.name
 					blockquote.post-intro
 						div!=data.post.content.intro || '<p>一段对文章的导语</p>'
 					.post-body
