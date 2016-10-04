@@ -58,6 +58,8 @@ keystone.set('nav', {
 
 // WYSIWYG editor settings
 keystone.set('wysiwyg images', true);
+keystone.set('wysiwyg additional buttons', 'underline strikethrough sub sup blockquote hr');
+keystone.set('wysiwyg additional plugins', 'hr, textcolor');
 
 // Google analytics
 if (process.env.GA_PROPERTY && process.env.GA_DOMAIN) {

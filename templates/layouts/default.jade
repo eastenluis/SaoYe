@@ -53,14 +53,12 @@ html
 				// Animation for the modal
 				.modal.fade.fullscreen(id="menuModal", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
 					.modal-dialog
-
 						.modal-content(style="color:#fff;")
 							.modal-header(style="border:0;")
 								a(class="close", data-dismiss="modal", aria-hidden="true", href="#")
 									span(class="glyphicon glyphicon-remove")
 								h4.model-title.text-center
 									span.sr-only main navigation
-
 							.modal-body.saoye-dropdown
 								.saoye-intro
 									.saoye-logo
@@ -96,10 +94,9 @@ html
 		#footer
 
 			.footer 
-				版权归多大中文·骚也所有	
-
+				| 版权归多大中文·骚也所有	
 				br
-				©Copyright 2016 saoye.me
+				| ©Copyright 2016 saoye.me
 
 
 		//- JAVASCRIPT
@@ -107,11 +104,11 @@ html
 		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 		//- you can upgrade to 2.1.4 (also bundled) for better performance.
-		script(src='/js/jquery/jquery-3.1.0.min.js')
+		script(src='/js/libs/jquery/jquery-3.1.0.min.js')
 
 		//- Customise which Bootstrap javascript files are served by including
 		//- them specifically here, instead of bootstrap-3.3.5.min.js
-		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
+		script(src='/js/libs/bootstrap/bootstrap-3.3.5.min.js')
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone

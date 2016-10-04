@@ -77,7 +77,6 @@ h6 {
 }
 
 .saoye-dropdown {
-
   /* Menu style */
   .saoye-intro {
     text-align: center;
@@ -100,8 +99,7 @@ h6 {
     }
   }
 
-  .menu-list {
-  }
+  .menu-list {}
 }
 
 #container {
@@ -295,9 +293,10 @@ h6 {
     li {
       a {
         background: none;
+        text-decoration: none;
 
         &:hover {
-          text-decoration: underline;
+          border-bottom: 1px solid #999;
         }
       }
 
@@ -377,10 +376,8 @@ h6 {
     }
   }
 
-  .modal-body {
-   
-  }
-
+  .modal-body {}
+  
   .fullscreen {
     .modal-body {
       ul {
@@ -455,4 +452,9 @@ h6 {
       border-radius: 50%;
     }
   }
+}
+
+sup[data-toggle="tooltip"] {
+  cursor: pointer;
+  text-decoration: underline;
 }

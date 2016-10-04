@@ -53,9 +53,9 @@ block content
 						header 编辑手札
 						.edtor-note!=data.post.content.editorNote
 					.post-copyright 
-						读者君，如果你实在憋不住的话，请发邮件至
+						| 读者君，如果你实在憋不住的话，请发邮件至
 						a(href="mailto:reader@saoye.me") readers@saoye.me
-						，看心情回。
+						| ，看心情回。
 						
 			.fill-space.hidden-md.hidden-lg
 		section.col-md-4.side-col 
@@ -72,3 +72,5 @@ block content
 									a(href='/articles/post/' + authorPost.slug)
 										= authorPost.title + ' - '
 										span.author-post-date=authorPost._.publishedDate.format('YYYY.MM.DD')
+block js
+	script(src="/js/post-page.js")
