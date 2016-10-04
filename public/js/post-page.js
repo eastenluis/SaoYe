@@ -1,10 +1,10 @@
 (function() {
     'use strict';
 
-    var clickEvent = isMobile.any ? 'touchend' : 'click';
+    var clickEvent = isMobile.any ? 'touchstart' : 'click';
     // Prepare all tooltips.
     $('[data-toggle="tooltip"]').tooltip({ trigger: 'manual' })
-        .on(clickEvent, function() {
+        .on('click', function() {
             $(this).tooltip('toggle');
         });
     // Hide tooltip when body clicked.
