@@ -4,8 +4,9 @@
     var articleSkip = 10;
     var limit = 10;
     var postTmpl = $.templates('#postTmpl');
+    var clickEvent = isMobile.any ? 'touchend' : 'click';
 
-    $('#load-more').on('click', function() {
+    $('#load-more').on(clickEvent, function() {
         $('#load-more').prop('disabled', true);
         var url = '/api/post?skip=' + articleSkip + '&limit=' + limit;
         $.ajax(url).done(function(data) {
