@@ -54,7 +54,7 @@ exports = module.exports = function(req, res) {
 		var q = keystone.list('Post').model.find()
 			.limit(5)
 			.where('state', 'published')
-			.sort({'publishedDate': 1, 'promoteOrder': -1})
+			.sort({'publishedDate': -1, 'promoteOrder': 1})
 			.populate('authors categories');
 
 		if (locals.data.category) {
