@@ -2,7 +2,7 @@ extends ../layouts/default
 include ../layouts/dot-divider
 
 block headVars
-	- var title = '骚也 | 'data.post.title;
+	- var title = '骚也 | ' + data.post.title;
 	- var ogImage = data.post.postImage.url || ('/post/images/' + data.post.postImage.filename);
 	- var ogDesc = data.post.content.brief;
 
