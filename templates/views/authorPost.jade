@@ -2,6 +2,14 @@
 
 extends ../layouts/default
 
+block headVars
+	- var title = '骚也 | ' + data.author.authorName
+	if data.author.authorImage.exists
+		- var ogImage = data.author.authorImage.url || ("/author/images/" + data.author.authorImage.filename);
+	else
+		- var ogImage = '/images/saoye_logo_white.png';
+	- var ogDesc = data.author.introduction.brief;
+
 mixin post(post, isS3Enabled)
 	.post.col-sm-6
 		if (post.postThumbnailImage.exists)
@@ -54,7 +62,7 @@ block content
 					img(src=authorImgUrl)
 				.author-name
 					!=data.author.authorName
-				.author-intro
+				#description.author-intro
 					!=data.author.introduction.brief
 			else
 				h5 没有找到这个作者。

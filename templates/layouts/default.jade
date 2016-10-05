@@ -9,7 +9,22 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		title= title || '骚也'
+		meta(name="og:site_name",content="骚也")
+
+		// Set up head variables for sharing.
+		block headVars
+		- var title = title || '骚也';
+		- var ogImage = ogImage || '/images/saoye_logo_300x300.png';
+		- var ogDesc = ogDesc || 'We are sorry about not feeling any sorry at all for our reader-unfriendliness.';
+
+		title= title
+		meta(name="description", content=ogDesc)
+		meta(property="og:title", content=title)
+		meta(property="og:image", content=ogImage)
+		meta(property="og:Desc", content=ogDesc)
+		// Hack for wechat to display image in moments.
+		div(style="display:none;"): img(src=ogImage)
+
 		link(rel="shortcut icon", href="/favicon.png", type="image/png")
 		link(rel="apple-touch-icon" href="/images/saoye_logo_160x160.png" sizes="160x160" type="image/png")
 
