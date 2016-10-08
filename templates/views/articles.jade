@@ -39,6 +39,10 @@ block clientTmpl
 				.post-info
 					| <a href="/articles/post/{{:slug}}" class="post-title">{{>title}}</a>
 					| <div class="post-brief">{{>brief}}</div>
+
+block headVars
+	- var title = '骚也 | 文章';
+
 block intro
 	.container
 		h2.page-heading

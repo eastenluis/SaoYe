@@ -1,6 +1,9 @@
 extends ../layouts/default
 include ../layouts/dot-divider
 
+block headVars
+	- var title = '骚也 | 关于';
+
 block content
 	link(href="/styles/site/about.min.css", rel="stylesheet")
 	.container.container-about: .row
