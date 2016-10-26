@@ -9,7 +9,8 @@ var TypesUtils = require('../commons/types-utils.js');
 
 var Post = new keystone.List('Post', {
     map: { name: 'title' },
-    autokey: { path: 'slug', from: 'title', unique: true }
+    autokey: { path: 'slug', from: 'title', unique: true },
+    defaultSort: '-publishedDate'
 });
 
 // Use extra functions in commons/types-utils.js

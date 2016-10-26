@@ -12,7 +12,7 @@ block authorInfo
 			.author
 				- var authorImageUrl = auth.authorImage.url || ('/author/images/' + auth.authorImage.filename);
 				.avatar
-					img(src=authorImageUrl) 
+					img(src=authorImageUrl, alt=auth.authorName) 
 				.author-info
 					a(href='/author/' + auth.slug).name= auth.authorName
 					.brief!=auth.introduction.brief
@@ -31,7 +31,11 @@ block content
 						header(style="background-image:url('" + postUrl + "');").post-header
 							if (data.post.titleImage.exists)
 								.post-title
-									img(class="post-title-img", src="" + (data.post.titleImage.url || "/post/images/" + data.post.titleImage.filename))
+									img(class="post-title-img", src="" + (data.post.titleImage.url || "/post/images/" + data.post.titleImage.filename), alt=data.post.title)
+								h1(class="sr-only")
+									!=data.post.title
+								h5(class="sr-only") 
+									!=data.post.content.brief
 							else 
 								.post-title
 									h1(class="post-title")

@@ -5,7 +5,7 @@ mixin postImage(post)
 		div(class="post-background", style="background-image:url(" + (post.postImage.url || "/post/images/" + post.postImage.filename) + ")")
 			if (post.titleImage.exists)
 				.post-title
-					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename))
+					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename), alt=post.title)
 			.post-info
 				if post.authors && post.authors.length
 					each auth, auth_i in post.authors
@@ -14,6 +14,10 @@ mixin postImage(post)
 				if post.categories && post.categories.length
 					each cat, cat_i in post.categories
 						a(href='/articles/' + cat.key).label=cat.name
+				h1(class="sr-only")
+					!=post.title
+				h5(class="sr-only") 
+					!=post.content.brief	
 	else 
 		.post-title-text
 			h1(class="post-title-text")
