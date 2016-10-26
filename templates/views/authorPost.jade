@@ -59,7 +59,7 @@ block content
 					else
 						- var authorImgUrl = '/images/saoye_logo_white.png';
 				
-					img(src=authorImgUrl)
+					img(src=authorImgUrl, alt=data.author.authorName)
 				.author-name
 					!=data.author.authorName
 				#description.author-intro

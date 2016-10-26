@@ -10,7 +10,7 @@ mixin author(author, isS3Enabled)
 			else
 				- var authorImgUrl = '/images/saoye_logo_white.png';
 			.author-image
-				img(src=authorImgUrl)
+				img(src=authorImgUrl, alt=author.authorName)
 			.author-introduction
 				div(class="author-name")
 					a(href='/author/' + author.slug) 
