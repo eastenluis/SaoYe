@@ -2,12 +2,12 @@ var keystone = require('keystone');
 
 var get = function(req, res) {
     var query = req.query;
-    var q = keystone.list('Post').model.find().populate('categories authors').limit(query.limit || 10);
+    var q = keystone.list('Post').model.find().populate('categories authors').limit(query.limit || 10).sort('-publishedDate');
 
     if (query.skip)
         q.skip(query.skip);
     if (query.category)
-        q.skip(query.skip);
+       q.where('categories').in([query.category]);
     if (query.author)
         q.where('authors').in([query.author]);
 
