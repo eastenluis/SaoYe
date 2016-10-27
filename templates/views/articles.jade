@@ -37,8 +37,8 @@ block clientTmpl
 						| 	<a href="/articles/{{:key}}" class="label">{{:name}}</a>
 						| {{/for}}	
 				.post-info
-					| <a href="/articles/post/{{:slug}}" class="post-title">{{>title}}</a>
-					| <div class="post-brief">{{>brief}}</div>
+					| <a href="/articles/post/{{:slug}}" class="post-title">{{:title}}</a>
+					| <div class="post-brief">{{:brief}}</div>
 
 block headVars
 	- var title = '骚也 | 文章';

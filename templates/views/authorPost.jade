@@ -45,8 +45,8 @@ block clientTmpl
 						| 	<a href="/articles/{{:key}}" class="label">{{:name}}</a>
 						| {{/for}}	
 				.post-info
-					| <a href="/articles/post/{{:slug}}" class="post-title">{{>title}}</a>
-					| <div class="post-brief">{{>brief}}</div>
+					| <a href="/articles/post/{{:slug}}" class="post-title">{{:title}}</a>
+					| <div class="post-brief">{{:brief}}</div>
 			
 block content
 	link(href="/styles/site/authorPost.min.css", rel="stylesheet")
