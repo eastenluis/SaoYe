@@ -29,13 +29,9 @@ block clientTmpl
 			.post
 				div(style="background-image:url('{{:imageUrl}}');").post-thumbnail
 					.category-labels
-						| {{for authors}} 
-						|	<a href="/author/{{:slug}}" class="label">{{:authorName}}</a>
-						| {{/for}}
-						| <span class="label">{{:date}}</span>
-						| {{for categories}}
-						| 	<a href="/articles/{{:key}}" class="label">{{:name}}</a>
-						| {{/for}}	
+						|{{for authors}}<a href="/author/{{:slug}}" class="label">{{:authorName}}</a>{{/for}}
+						|<span class="label">{{:date}}</span>
+						|{{for categories}}<a href="/articles/{{:key}}" class="label">{{:name}}</a>{{/for}}
 				.post-info
 					| <a href="/articles/post/{{:slug}}" class="post-title">{{:title}}</a>
 					| <div class="post-brief">{{:brief}}</div>
