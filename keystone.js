@@ -35,14 +35,13 @@ keystone.import('models');
 // Setup common locals for your templates. The following are required for the
 // bundled templates and layouts. Any runtime locals (that should be set uniquely
 // for each request) should be added to ./routes/middleware.js
-
 keystone.set('locals', {
 	_: require('underscore'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
-	ga_property: keystone.get('ga property'),
-	ga_domain: keystone.get('ga domain')
+	ga_property: process.env.GA_PROPERTY,
+	ga_domain: process.env.GA_DOMAIN
 });
 
 // Load your project's Routes
@@ -60,13 +59,6 @@ keystone.set('nav', {
 keystone.set('wysiwyg images', true);
 keystone.set('wysiwyg additional buttons', 'underline strikethrough sub sup blockquote hr');
 keystone.set('wysiwyg additional plugins', 'hr, textcolor');
-
-// Google analytics
-if (process.env.GA_PROPERTY && process.env.GA_DOMAIN) {
-	keystone.set('ga property', process.env.GA_PROPERTY);
-	keystone.set('ga domain', process.env.GA_DOMAIN);
-}
-
 
 // Add a new resource to the root file
 keystone.set('static', ['public', 'files']);
