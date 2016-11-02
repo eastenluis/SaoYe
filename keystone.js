@@ -40,8 +40,8 @@ keystone.set('locals', {
 	env: keystone.get('env'),
 	utils: keystone.utils,
 	editable: keystone.content.editable,
-	ga_property: process.env.GA_PROPERTY,
-	ga_domain: process.env.GA_DOMAIN
+	ga_property: process.env.GOOGLE_ANALYTICS_PROPERTY,
+	ga_domain: process.env.GOOGLE_ANALYTICS_DOMAIN
 });
 
 // Load your project's Routes
