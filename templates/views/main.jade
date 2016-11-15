@@ -10,6 +10,10 @@ mixin postImage(post)
 					!=post.title
 				h5(class="sr-only") 
 					!=post.content.brief	
+				h1(class="sr-only")
+					!=post.title
+				h5(class="sr-only") 
+					!=post.content.brief	
 	else 
 		.post-title-text
 			h1(class="post-title-text")
