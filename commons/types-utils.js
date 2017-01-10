@@ -13,8 +13,8 @@ TypesUtils.createS3FileObj = function(path) {
 		allowedTypes: [
 			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
 		],
-        filename: function(item, filename) {
-            return item._id + '-' + filename;
+        filename: function(item, filename, originalName) {
+            return item._id + '-' + originalName;
         },
 		format: function(item, file){
 			return '<pre>'+JSON.stringify(file, false, 2)+'</pre>'+
@@ -32,11 +32,12 @@ TypesUtils.createLocalFileObj = function(path) {
 			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
 		],
         filename: function(item, file) {
-            return item.id + '-' + file.name;
+            return item.id + '-' + file.originalname;
         },
 		format: function(item, file) {
-			return '<img src= "/files/' + path + file.filename + '" style="max-width: 750px">'
-		}
+			return '<img src= "/files/' + path + '/' + file.filename + '" style="max-width: 750px">'
+		},
+        note: '/files/' + path + '/<file name>'
     };
 };
 
@@ -49,11 +50,12 @@ TypesUtils.createLocalMultipleFileObj = function(path) {
 			'image/jpeg', 'image/png', 'image/gif', 'image/svg+xml'
 		],
         filename: function(item, file) {
-            return item.id + '-' + file.name;
+            return item.id + '-' + file.originalname;
         },
 		format: function(item, file) {
 			return '<img src= "/files/' + path + file.filename + '" style="max-width: 750px">'
-		}
+		},
+        note: '/files/' + path + '/<file name>'
     };
 };
 

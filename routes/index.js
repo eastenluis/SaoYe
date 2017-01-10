@@ -41,6 +41,7 @@ exports = module.exports = function(app) {
 	app.get('/author', routes.views.author);
 	app.get('/author/:post', routes.views.authorPost);
 	app.get('/about', routes.views.about);
+	app.get('/draft-post/:post', middleware.requireUser, routes.views.draftPost);
 
 	// apis
 	PostApi.registerApis(app);

@@ -12,9 +12,9 @@ var TypesUtils = require('../commons/types-utils.js');
 
 var Author = new keystone.List('Author', {
 	map: { name: 'authorName' },
-	autokey: { path: 'slug', from: 'authorName', unique: true }
+	autokey: { path: 'slug', from: 'authorName', unique: true },
+	sortable: true
 });
-
 
 // Use extra functions in commons/types-utils.js
 var authorImageObj = TypesUtils.createFileTypeObj('author/images/');
@@ -24,7 +24,7 @@ Author.add({
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	uploader: { type: Types.Relationship, ref: 'User', index: true },
 	authorImage: authorImageObj,
-	order: {type: Types.Number },
+	isListedAuthor: { type: Types.Boolean, default: false, initial: true, index: true },
 	introduction: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 }
 	}
@@ -37,5 +37,5 @@ Author.schema.virtual('content.full').get(function() {
 
 Author.relationship({ path: 'posts', ref: 'Post', refPath: 'authors'});
 
-Author.defaultColumns = 'authorName, state, order';
+Author.defaultColumns = 'authorName, isListedAuthor, state';
 Author.register();

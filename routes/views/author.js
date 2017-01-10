@@ -38,7 +38,8 @@ exports = module.exports = function(req, res) {
 
 		var q = keystone.list('Author').model.find()
 			.where('state', 'published')
-			.sort('order')
+			.where('isListedAuthor', true)
+			.sort('sortOrder')
 			.populate('uploader');
 
 		q.exec(function(err, results) {
