@@ -10,7 +10,10 @@ block authorInfo
 	if data.post.authors && data.post.authors.length
 		each auth in data.post.authors
 			.author
-				- var authorImageUrl = auth.authorImage.url || ('/author/images/' + auth.authorImage.filename);
+				if (auth.authorImage.exists)
+					- var authorImageUrl = auth.authorImage.url || ('/author/images/' + auth.authorImage.filename);
+				else
+					- var authorImageUrl = '/images/saoye_logo_white.png';
 				.avatar
 					img(src=authorImageUrl, alt=auth.authorName) 
 				.author-info

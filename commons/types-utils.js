@@ -37,7 +37,7 @@ TypesUtils.createLocalFileObj = function(path) {
 		format: function(item, file) {
 			return '<img src= "/files/' + path + '/' + file.filename + '" style="max-width: 750px">'
 		},
-        note: '/files/' + path + '/<file name>'
+        note: '/files/' + path + '/file name'
     };
 };
 
@@ -55,7 +55,7 @@ TypesUtils.createLocalMultipleFileObj = function(path) {
 		format: function(item, file) {
 			return '<img src= "/files/' + path + file.filename + '" style="max-width: 750px">'
 		},
-        note: '/files/' + path + '/<file name>'
+        note: '/files/' + path + '/file name'
     };
 };
 
