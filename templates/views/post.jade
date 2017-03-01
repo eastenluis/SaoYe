@@ -52,17 +52,19 @@ block content
 								if data.post.categories && data.post.categories.length
 									each cat, cat_i in data.post.categories
 										a(href='/articles/' + cat.key).label=cat.name
-					blockquote.post-intro
-						div!=data.post.content.intro || '<p>一段对文章的导语</p>'
+					if (data.post.content.intro)
+						blockquote.post-intro
+							div!=data.post.content.intro || '<p>一段对文章的导语</p>'
 					.post-body
 						!= data.post.content.full
 					+dot-divider()
 					.hidden-md.hidden-lg.authors-container
 						header 作者
 						block authorInfo
-					.post-editor-note
-						header 编辑手札
-						.edtor-note!=data.post.content.editorNote
+					if (data.post.content.editorNote)
+						.post-editor-note
+							header 编辑手札
+							.edtor-note!=data.post.content.editorNote
 					.post-copyright 
 						| 读者君，如果你实在憋不住的话，请发邮件至
 						a(href="mailto:reader@saoye.me") readers@saoye.me
