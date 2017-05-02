@@ -17,7 +17,7 @@ var Author = new keystone.List('Author', {
 });
 
 // Use extra functions in commons/types-utils.js
-var authorImageObj = TypesUtils.createFileTypeObj('author/images/');
+var authorImageObj = TypesUtils.createImageFileType('author/images/');
 
 Author.add({
 	authorName: { type: String, required: true },
@@ -35,7 +35,7 @@ Author.schema.virtual('content.full').get(function() {
 });
 
 
-Author.relationship({ path: 'posts', ref: 'Post', refPath: 'authors'});
+Author.relationship({ path: 'posts', ref: 'Post', refPath: 'authors' });
 
 Author.defaultColumns = 'authorName, isListedAuthor, state';
 Author.register();

@@ -17,5 +17,8 @@
   "scripts": {
     "start": "node keystone.js"
   },
-  "main": "keystone.js"
+  "main": "keystone.js",
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  }
 }

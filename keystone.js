@@ -25,7 +25,7 @@ var params = {
 	'signin logo': '/images/saoye_logo_white.png'
 };
 if (process.env.MONGOLAB_URI)
-    params.mongo = process.env.MONGOLAB_URI;
+	params.mongo = process.env.MONGOLAB_URI;
 
 keystone.init(params);
 
@@ -50,7 +50,7 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'文章及分类': ['posts', 'post-categories'],
+	'文章及分类': ['posts', 'post-categories', 'post-media'],
 	'作者': 'authors',
 	'后台用户': 'users'
 });

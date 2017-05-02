@@ -15,11 +15,11 @@ var Post = new keystone.List('Post', {
 
 // Use extra functions in commons/types-utils.js
 
-var titleImageObj = TypesUtils.createFileTypeObj('post/images/');
+var titleImageObj = TypesUtils.createImageFileType('post/images/');
 titleImageObj.label = '标题文字（图片）';
-var postImageObj = TypesUtils.createFileTypeObj('post/images/');
+var postImageObj = TypesUtils.createImageFileType('post/images/');
 postImageObj.label = '封图';
-var postThumbnailImageObj = TypesUtils.createFileTypeObj('post/images/');
+var postThumbnailImageObj = TypesUtils.createImageFileType('post/images/');
 postThumbnailImageObj.label = '缩略图';
 var contentImages = TypesUtils.createLocalMultipleFileObj('post/images/');
 contentImages.label = '内插图片';
@@ -29,9 +29,9 @@ Post.add({
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     uploader: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, label: '发布日期', index: true, dependsOn: { state: 'published' } },
-	titleImage: titleImageObj,
+    titleImage: titleImageObj,
     postImage: postImageObj, 
-	postThumbnailImage: postThumbnailImageObj,
+    postThumbnailImage: postThumbnailImageObj,
     contentImages: contentImages,
     content: {
         brief: { type: Types.Html, label: '黄金一句', wysiwyg: true, height: 50 },
@@ -40,7 +40,7 @@ Post.add({
         editorNote: { type: Types.Html, label: '编辑手札', wysiwyg: true, height: 150 }
     },
     categories: { type: Types.Relationship, label: '分类', ref: 'PostCategory', many: true },
-	authors: { type: Types.Relationship, label: '作者', ref: 'Author', many: true },
+    authors: { type: Types.Relationship, label: '作者', ref: 'Author', many: true },
     promoteOrder: {type: Types.Number }
 });
 
