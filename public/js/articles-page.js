@@ -1,3 +1,4 @@
+/* global $ */
 (function() {
     'use strict';
 
@@ -35,8 +36,7 @@
             } else {
                 $('#load-more').css('display', 'none');
             }
-        }).fail(function(err) {
-            console.error(err.message);
+        }).fail(function() {
             $('#load-more').prop('disabled', false);
         });
     });

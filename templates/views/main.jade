@@ -1,9 +1,9 @@
 extends ../layouts/default
 
 mixin postImage(post)
-	if (post.postImage.exists)
+	if (post.postImage)
 		div(class="post-background", style="background-image:url('" + (post.postImage.url || "/post/images/" + post.postImage.filename) + "')")
-			if (post.titleImage.exists)
+			if (post.titleImage)
 				.post-title
 					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename), alt=post.title)
 			.post-info

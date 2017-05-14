@@ -21,8 +21,6 @@ var postImageObj = TypesUtils.createImageFileType('post/images/');
 postImageObj.label = '封图';
 var postThumbnailImageObj = TypesUtils.createImageFileType('post/images/');
 postThumbnailImageObj.label = '缩略图';
-var contentImages = TypesUtils.createLocalMultipleFileObj('post/images/');
-contentImages.label = '内插图片';
 
 Post.add({
     title: { type: String, label: '标题', required: true },
@@ -30,9 +28,8 @@ Post.add({
     uploader: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, label: '发布日期', index: true, dependsOn: { state: 'published' } },
     titleImage: titleImageObj,
-    postImage: postImageObj, 
+    postImage: postImageObj,
     postThumbnailImage: postThumbnailImageObj,
-    contentImages: contentImages,
     content: {
         brief: { type: Types.Html, label: '黄金一句', wysiwyg: true, height: 50 },
         intro: { type: Types.Html, label: '导语', wysiwyg: true, height: 150 },
@@ -41,7 +38,7 @@ Post.add({
     },
     categories: { type: Types.Relationship, label: '分类', ref: 'PostCategory', many: true },
     authors: { type: Types.Relationship, label: '作者', ref: 'Author', many: true },
-    promoteOrder: {type: Types.Number }
+    promoteOrder: { type: Types.Number }
 });
 
 Post.schema.virtual('content.full').get(function() {

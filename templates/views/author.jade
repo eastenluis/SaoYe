@@ -5,7 +5,7 @@ extends ../layouts/default
 mixin author(author, isS3Enabled)
 	.col-sm-4
 		.author
-			if author.authorImage.exists
+			if author.authorImage
 				- var authorImgUrl = isS3Enabled ? author.authorImage.url : '/author/images/' + author.authorImage.filename;
 			else
 				- var authorImgUrl = '/images/saoye_logo_white.png';
