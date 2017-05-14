@@ -1,11 +1,11 @@
 extends ../layouts/default
 
 mixin postImage(post)
-	if (post.postImage && post.postImage.url)
-		div(class="post-background", style="background-image:url('" + post.postImage.url + "')")
-			if (post.titleImage && post.titleImage.url)
+	if (post.postImage && post.postImage.path)
+		div(class="post-background", style="background-image:url('" + (post.postImage.url || "/post/images/" + post.postImage.filename) + "')")
+			if (post.titleImage && post.titleImage.path)
 				.post-title
-					img(class="post-title-img", src="" + post.titleImage.url, alt=post.title)
+					img(class="post-title-img", src="" + (post.titleImage.url || "/post/images/" + post.titleImage.filename), alt=post.title)
 			.post-info
 				if post.authors && post.authors.length
 					each auth, auth_i in post.authors
