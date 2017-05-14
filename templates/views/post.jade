@@ -10,8 +10,8 @@ block authorInfo
 	if data.post.authors && data.post.authors.length
 		each auth in data.post.authors
 			.author
-				if (auth.authorImage)
-					- var authorImageUrl = auth.authorImage.url || ('/author/images/' + auth.authorImage.filename);
+				if (auth.authorImage && auth.authorImage.url)
+					- var authorImageUrl = auth.authorImage.url;
 				else
 					- var authorImageUrl = '/images/saoye_logo_white.png';
 				.avatar
@@ -29,8 +29,8 @@ block content
 				if !data.post
 					h2 Invalid Post.
 				else
-					if (data.post.postImage)
-						- var postUrl = data.post.postImage.url || ('/post/images/' + data.post.postImage.filename);
+					if (data.post.postImage && data.post.postImage.url)
+						- var postUrl = data.post.postImage.url;
 						header(style="background-image:url('" + postUrl + "');").post-header
 							if (data.post.titleImage)
 								.post-title
@@ -55,6 +55,8 @@ block content
 					if (data.post.content.intro)
 						blockquote.post-intro
 							div!=data.post.content.intro || '<p>一段对文章的导语</p>'
+					else
+						div.post-intro
 					.post-body
 						!= data.post.content.full
 					+dot-divider()

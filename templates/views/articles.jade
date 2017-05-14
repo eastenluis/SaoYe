@@ -3,7 +3,7 @@ extends ../layouts/default
 mixin post(post, isS3Enabled)
 	.col-sm-6
 		.post
-			if (post.postThumbnailImage)
+			if (post.postThumbnailImage && post.postThumbnailImage.url)
 				- var postUrl = isS3Enabled ? post.postThumbnailImage.url : ('/post/images/' + post.postThumbnailImage.filename);
 			else 
 				- var postUrl = '/images/saoye_logo_black.svg'; 

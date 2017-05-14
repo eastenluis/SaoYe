@@ -4,6 +4,10 @@
         "commonjs": true,
         "es6": true
     },
+    "ecmaFeatures": {
+        "arrowFunctions": true,
+        "modules": true
+    },
     "extends": "eslint:recommended",
     "rules": {
         "indent": [
