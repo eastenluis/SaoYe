@@ -62,7 +62,8 @@ keystone.set('wysiwyg additional plugins', 'hr, textcolor');
 keystone.set('wysiwyg additional options', {
     image_class_list: [{title: 'default', value: 'img-responsive'}],
     image_dimensions: false,
-    image_prepend_url: false
+    image_prepend_url: false,
+    relative_urls: false,
 });
 
 // Add a new resource to the root file
