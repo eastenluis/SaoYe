@@ -7,27 +7,33 @@
 @navbar-height-lg-screen: 80px;
 @navbar-height-sm-screen: 60px;
 
-@kihada-yellow: #FBE251;
-@ohdo-brown: #B68E55;
+@kihada-yellow: #fbe251;
+@ohdo-brown: #b68e55;
 
 @desktop-min: 1024px;
 
 .display-flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
 }
 
 .flex(@grow; @shrink; @basis) {
-    -webkit-box-flex: @grow;
-    -ms-flex: @grow @shrink @basis;
-    -webkit-flex: @grow @shrink @basis;
-    flex: @grow @shrink @basis;
+  -webkit-box-flex: @grow;
+  -ms-flex: @grow @shrink @basis;
+  -webkit-flex: @grow @shrink @basis;
+  flex: @grow @shrink @basis;
 }
 
 .flex-direction(@direction) {
-    -webkit-box-direction: @direction;
-    -webkit-flex-direction: @direction;
-    flex-direction: @direction;
+  -webkit-box-direction: @direction;
+  -webkit-flex-direction: @direction;
+  flex-direction: @direction;
+}
+
+.font-hei() {
+  font-family: "Segoe UI", "Helvetica Neue", Arial, "Hiragino Sans GB",
+    "PingFang SC", "Heiti SC", "Microsoft YaHei UI", "Microsoft YaHei",
+    "Source Han Sans", sans-serif;
 }

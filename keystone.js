@@ -65,7 +65,7 @@ keystone.set('wysiwyg additional options', {
     image_dimensions: false,
     image_prepend_url: false,
     relative_urls: false,
-    content_css: '/styles/common/article-content.css',
+    content_css: '/styles/site/common/article-content.css',
     body_class: 'article-content'
 });
 
