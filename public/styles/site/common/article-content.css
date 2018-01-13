@@ -1,0 +1,33 @@
+.display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.article-content p {
+  margin-bottom: 1em;
+  line-height: 1.6em;
+}
+.article-content p:last-child {
+  margin-bottom: 0;
+}
+.article-content p.reference {
+  font-size: 0.9em;
+  color: #666;
+}
+.article-content blockquote {
+  border-left: 2px solid #B68E55;
+  background-color: #f3f3f3;
+  font-size: 1em;
+  padding: 10px 20px;
+}
+.article-content figure.thumbnail {
+  border: 0 none;
+  padding: 0;
+}
+.article-content figure.thumbnail figcaption {
+  text-align: center;
+  font-size: 0.9em;
+  color: #999;
+  padding: 0.5em;
+}

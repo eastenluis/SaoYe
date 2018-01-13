@@ -60,10 +60,13 @@ keystone.set('wysiwyg images', true);
 keystone.set('wysiwyg additional buttons', 'underline strikethrough sub sup blockquote hr');
 keystone.set('wysiwyg additional plugins', 'hr, textcolor');
 keystone.set('wysiwyg additional options', {
+    // Editors
     image_class_list: [{title: 'default', value: 'img-responsive'}],
     image_dimensions: false,
     image_prepend_url: false,
     relative_urls: false,
+    content_css: '/styles/common/article-content.css',
+    body_class: 'article-content'
 });
 
 // Add a new resource to the root file
